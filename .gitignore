@@ -1,0 +1,10 @@
+# Editor beállítások
+.vscode/
+
+# Rendszer fájlok
+.DS_Store
+Thumbs.db
+
+# Ideiglenes fájlok
+*.swp
+*~

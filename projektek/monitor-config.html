@@ -46,10 +46,13 @@
                             <li><strong>Licenc:</strong> GPL-3.0</li>
                         </ul>
 
+                        
+                        <!-- Ez a gomb közvetlenül letölti a .deb csomagot -->
                         <div class="button-row">
-                            <a href="https://github.com/szabogergely26" class="button">Forráskód</a>
+                        <a href="https://github.com/szabogergely26/Kijelzo/releases/download/v0.1.3/monitor-config_0.1.3_all.deb" class="button primary" download>
+                            Letöltés
+                        </a>
                         </div>
-                    </div>
                 </article>
             </section>
 
@@ -63,14 +66,18 @@
             </section>
 
             <!-- Letöltés szekció: Monitor Config kizárólag Linux (KDE Plasma) alá készül, -->
-            <section class="download-section">
+            <!-- ezért nincs Windows opció, csak Debian csomag és forráskód -->
+            <!-- id="letoltes": ide ugrik a fenti "Letöltés" gomb -->
+            <section class="download-section" id="letoltes">
                 <h3>Letöltés</h3>
                 <div class="button-row">
-                    <!-- .deb csomag, amint elkészül a build -->
-                    <span class="button disabled">Linux (Debian .deb) – Hamarosan</span>
+                    <!-- v0.1.3 .deb csomag a GitHub Releases-ről -->
+                    <a href="https://github.com/szabogergely26/Kijelzo/releases/download/v0.1.3/monitor-config_0.1.3_all.deb" class="button primary">
+                        Linux (Debian .deb) – v0.1.3
+                    </a>
 
-                <!-- Forráskód mindig elérhető, ez nem placeholder -->
-                <a href="https://github.com/szabogergely26/Kijelzo" class="button">Forráskód</a>
+                    <!-- Forráskód a Kijelzo repóra mutat -->
+                    <a href="https://github.com/szabogergely26/Kijelzo" class="button">Forráskód</a>
                 </div>
             </section>
 
