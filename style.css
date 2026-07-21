@@ -406,6 +406,7 @@ a:hover {
 .card-thumb {
     position: relative;
     margin: -20px -20px 14px -20px;
+    overflow: hidden;    /* EZ HIÁNYZOTT - ez vágja le a képet a doboz méretére */
 }
 
 .card-thumb img {
