@@ -58,65 +58,108 @@
                             <a href="#" class="button">Forráskód</a>
                         </div>
                     </div>
+
+                    <!-- Platform ikonok bal alul, ugyanúgy mint a kisebb kártyáknál -->
+                    <div class="card-footer">
+                        <span class="platform-icons">
+                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                            <img src="assets/icons/windows.svg" alt="Windows" width="16" height="16">
+                        </span>
+                    </div>
                 </article>
             </section>
 
-            <section class="app-grid">
+           <section class="app-grid">
 
                 <article class="app-card">
-                    <h3>Filmek Adatbázis</h3>
-                    <p>
-                        Offline film- és sorozatadatbázis borítóképekkel, kártyás és listás nézettel,
-                        részletes adatlapokkal és helyi adatkezeléssel.
-                    </p>
-
+                    <div class="card-thumb">
+                        <img src="kepernyokepek/Filmek-Adatbazis/főprogram.png" alt="Filmek Adatbázis">
+                        <span class="badge badge-preview">Preview</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Filmek Adatbázis</h3>
+                        <p>
+                            Offline film- és sorozatadatbázis borítóképekkel, kártyás és listás nézettel,
+                            részletes adatlapokkal és helyi adatkezeléssel.
+                        </p>
+                    </div>
                     <div class="card-footer">
-                        <span>Windows / Linux</span>
+                        <span class="platform-icons">
+                            <!-- Windows ikon -->
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00A4EF"><path d="M3 5.5L10 4.4V11H3V5.5zM11 4.2L21 3V11H11V4.2zM3 12H10V18.6L3 17.5V12zM11 12H21V20L11 18.8V12z"/>
+                            </svg>
+
+                            <!-- Linux ikon -->
+                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                        </span>
                         <a href="#">Részletek</a>
                     </div>
                 </article>
 
                 <article class="app-card">
-                    <h3>Monitor Config</h3>
-                    <p>
-                        Egyszerű kijelzőprofil-kezelő KDE/X11 környezethez,
-                        TV, soundbar és külső kijelző profilok gyors váltásához.
-                    </p>
-
+                    <div class="card-thumb">
+                        <img src="kepernyokepek/monitor-config/monitor-config-ui.png" alt="Monitor Config">
+                        <span class="badge badge-stable">Stabil</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Monitor Config</h3>
+                        <p>
+                            Egyszerű kijelzőprofil-kezelő KDE/X11 környezethez,
+                            TV, soundbar és külső kijelző profilok gyors váltásához.
+                        </p>
+                    </div>
                     <div class="card-footer">
-                        <span>Debian / KDE</span>
+                        <span class="platform-icons">
+                            <!-- Linux ikon -->
+                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                        </span>
                         <a href="projektek/monitor-config.html">Részletek</a>
                     </div>
                 </article>
 
                 <article class="app-card">
-                    <h3>EasyEffects Quick Access</h3>
-                    <p>
-                        KDE Plasma panel-widget az EasyEffects gyors eléréséhez:
-                        egy kattintás a megnyitáshoz, jobb klikk a mentett hangprofilok
-                        listázásához és azonnali betöltéséhez.
-                    </p>
-
-                    <div class="card-footer">
-                        <span>Debian / KDE (Plasmoid)</span>
-                        <a href="#">Részletek</a>
+                    <div class="card-thumb">
+                        <img src="kepernyokepek/EasyEffects/plasmoid.png" alt="EasyEffects Quick Access">
+                            <span class="badge badge-stable">Stabil</span>
                     </div>
+                    <div class="card-body">
+                        <h3>EasyEffects Quick Access</h3>
+                        <p>
+                            KDE Plasma panel-widget az EasyEffects gyors eléréséhez:
+                            egy kattintás a megnyitáshoz, jobb klikk a hangprofilok listázásához.
+                        </p>
+                    </div>
+                <div class="card-footer">
+                    <span class="platform-icons">
+                        <!-- Linux ikon -->
+                        <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                    </span>
+                    <a href="#">Részletek</a>
+                </div>
                 </article>
 
-                <article class="app-card">
-                    <h3>Forráskód</h3>
-                    <p>
-                        A projektek forráskódja külön is elérhető GitHub-on,
-                        illetve később ZIP és TAR.GZ archívumként is letölthető.
-                    </p>
+    <article class="app-card">
+        <div class="card-thumb">
+            <img src="kepernyokepek/Retro-Game-Launcher/Képernyőkép_20260710_095608.png" alt="Retro Game Launcher">
+            <span class="badge badge-dev">Fejlesztés alatt</span>
+        </div>
+        <div class="card-body">
+            <h3>Retro Game Launcher</h3>
+            <p>
+                Retro játékok indítója egységes felülettel, memória- és nyelvválasztási
+                beállításokkal.
+            </p>
+        </div>
+        <div class="card-footer">
+            <span class="platform-icons">
+                <!-- Linux ikon -->
+                <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+            </span>
+            <a href="#">Részletek</a>
+        </div>
+    </article>
 
-                    <div class="card-footer">
-                        <span>GPL-3.0</span>
-                        <a href="#">GitHub</a>
-                    </div>
-                </article>
-
-            </section>
+</section>
 
             <section class="info-columns">
 
@@ -136,6 +179,17 @@
                         külön alkalmazásonként rendezve.
                     </p>
                     <a href="kepernyokepek/index.html">Képernyőképek megnyitása »</a>
+                </div>
+
+
+
+                <div class="info-box">
+                    <h3>Forráskód</h3>
+                    <p>
+                        Minden projekt forráskódja nyíltan elérhető GitHub-on,
+                        hibajelentéseknek és fejlesztőknek.
+                    </p>
+                    <a href="https://github.com/szabogergely26">GitHub megnyitása »</a>
                 </div>
 
             </section>
