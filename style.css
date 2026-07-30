@@ -460,3 +460,156 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Képernyőképek galéria: kattintható thumbnail + CSS-alapú lightbox (JS nélkül) */
+
+.thumb-link {
+    display: block;
+    cursor: zoom-in;
+    animation: thumb-fade-in 0.5s ease both;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+.thumb-link:hover {
+    text-decoration: none;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 14px 30px rgba(38, 82, 121, 0.35);
+    z-index: 2;
+}
+
+.thumb-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.25s ease;
+}
+
+.thumb-link:hover img {
+    filter: brightness(1.03);
+}
+
+@keyframes thumb-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggerelt betöltés: minden rácsban a képek kicsit egymás után jelennek meg */
+.screenshot-grid .thumb-link:nth-child(1) { animation-delay: 0.02s; }
+.screenshot-grid .thumb-link:nth-child(2) { animation-delay: 0.08s; }
+.screenshot-grid .thumb-link:nth-child(3) { animation-delay: 0.14s; }
+.screenshot-grid .thumb-link:nth-child(4) { animation-delay: 0.20s; }
+.screenshot-grid .thumb-link:nth-child(5) { animation-delay: 0.26s; }
+.screenshot-grid .thumb-link:nth-child(6) { animation-delay: 0.32s; }
+.screenshot-grid .thumb-link:nth-child(7) { animation-delay: 0.38s; }
+.screenshot-grid .thumb-link:nth-child(8) { animation-delay: 0.44s; }
+.screenshot-grid .thumb-link:nth-child(9) { animation-delay: 0.50s; }
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background: rgba(15, 25, 35, 0.85);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: zoom-out;
+    animation: lightbox-fade-in 0.25s ease;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: lightbox-zoom-in 0.25s ease;
+}
+
+@keyframes lightbox-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes lightbox-zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.93);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Képernyőképek galéria: Rács / Szalag nézetváltó (checkbox + :checked trükk, JS nélkül) */
+
+.view-toggle-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.view-toggle-input {
+    display: none;
+}
+
+.view-toggle-label {
+    display: inline-block;
+    user-select: none;
+}
+
+.view-toggle-label::before {
+    content: "☰  Szalag nézet";
+}
+
+.view-toggle-input:checked + .view-toggle-label::before {
+    content: "⊞  Rács nézet";
+}
+
+/* Szalag nézetben (checkbox bejelölve) minden galéria egy vízszintesen görgethető sorrá válik.
+   A checkbox most egy wrapper divben van, ezért :has()-szal jelöljük ki a tartalom-konténert. */
+.content:has(#view-toggle:checked) section.screenshot-frame .screenshot-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.content:has(#view-toggle:checked) section.screenshot-frame .thumb-link {
+    flex: 0 0 auto;
+    width: 280px;
+    max-width: none;
+    margin: 0;
+}
+
+.content:has(#view-toggle:checked) section.screenshot-frame .screenshot-grid::-webkit-scrollbar {
+    height: 10px;
+}
+
+.content:has(#view-toggle:checked) section.screenshot-frame .screenshot-grid::-webkit-scrollbar-track {
+    background: #e3edf6;
+}
+
+.content:has(#view-toggle:checked) section.screenshot-frame .screenshot-grid::-webkit-scrollbar-thumb {
+    background: #8caac5;
+    border-radius: 5px;
+}
