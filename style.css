@@ -50,6 +50,18 @@ a:hover {
             transparent 2px,
             transparent 8px
         );
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.header-author {
+    margin: 0;
+    font-size: 15px;
+    color: #eef6ff;
+    white-space: nowrap;
 }
 
 .site-header h1 {
@@ -672,7 +684,7 @@ a:hover {
 
 .featured.anim-fade .slide {
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 0.5s ease;
 }
 
 .featured.anim-fade .slide.active {
@@ -682,7 +694,7 @@ a:hover {
 .featured.anim-slide .slide {
     opacity: 0;
     transform: translateX(-24px);
-    transition: opacity 1.4s ease, transform 2.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .featured.anim-slide .slide.active {
@@ -814,5 +826,3 @@ a:hover {
     background: #2f638f;
     border-color: #214f77;
 }
-
-

@@ -16,8 +16,11 @@
         <!-- Fejléc -->
         <header class="site-header">
             <div class="header-inner">
-                <h1>Szabó Gergely szoftverei</h1>
-                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+                <div class="header-titles">
+                    <h1>Saját szoftverek gyüjteménye</h1>
+                    <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+                </div>
+                <p class="header-author">Szabó Gergely</p>
             </div>
         </header>
         <!-- Navigációs sáv -->
@@ -48,7 +51,7 @@
             const FEATURED_CONFIG = {
                 ENABLED: true,          // false = csak az első slide jelenik meg, statikus kártyaként, nyilak/pöttyök nélkül
                 AUTOPLAY_MS: 5000,      // automatikus váltás ennyi ms-onként (0 = nincs automatikus váltás)
-                TRANSITION: 0,          // 1 = áttűnés (fade), 0 = csúsztatás (balról-jobbra)
+                TRANSITION: 1,          // 1 = áttűnés (fade), 0 = csúsztatás (balról-jobbra)
                 SLIDES: [
                     {
                         eyebrow: "Legújabb",
