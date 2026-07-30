@@ -434,6 +434,27 @@ a:hover {
 .badge-preview { background: #c78a2e; }
 .badge-dev { background: #a04f4f; }
 
+/* Inline badge (nem abszolút pozicionálva) a doksi-kártyák láblécéhez */
+.badge-inline {
+    position: static;
+    padding: 3px 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #ffffff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.disabled-link {
+    color: #a3b1bf;
+    cursor: not-allowed;
+}
+
+.card-footer .badge-inline {
+    color: #ffffff;
+}
+
 .card-body {
     flex: 1;
 }

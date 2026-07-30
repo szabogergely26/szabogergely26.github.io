@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Config dokumentáció – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        code {
+            background: #eef3f8;
+            border: 1px solid #c7d5e3;
+            padding: 1px 5px;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+        pre {
+            background: #1f2a35;
+            color: #eef3f8;
+            border: 1px solid #0f1620;
+            padding: 14px 16px;
+            overflow-x: auto;
+            margin: 12px 0 18px 0;
+        }
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="../letoltesek/index.html">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html" class="active">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="../dokumentacio/index.html">« Vissza a Dokumentációhoz</a></p>
+
+            <section class="intro-box">
+                <h2>Monitor Config – Dokumentáció</h2>
+                <p>
+                    A Monitor Config egy saját használatra készült, PyQt5-alapú
+                    kijelzőprofil-váltó KDE Plasma környezethez. A program célja,
+                    hogy a laptop kijelzője, a TV és a soundbar között gyorsan,
+                    biztonságosan és ismételhetően lehessen váltani anélkül, hogy
+                    minden alkalommal kézzel kellene <code>xrandr</code> vagy
+                    <code>kscreen-doctor</code> parancsokat futtatni.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Rendszerkövetelmények és függőségek</h3>
+                <p>Főbb futási függőségek:</p>
+                <ul class="meta-list">
+                    <li>Python 3</li>
+                    <li>PyQt5</li>
+                    <li>xrandr</li>
+                    <li>kscreen-doctor</li>
+                </ul>
+
+                <p>Debian / KDE alatt szükséges csomagok például:</p>
+                <pre><code>sudo apt install python3-pyqt5 x11-xserver-utils libkscreen-bin</code></pre>
+
+                <p>Értesítésekhez és kapcsolódó integrációhoz szükség lehet még:</p>
+                <pre><code>sudo apt install python3-gi gir1.2-notify-0.7 libnotify-bin</code></pre>
+
+                <p>A pontos függőségeket a Debian-csomag vezérlőfájlja tartalmazza.</p>
+            </section>
+
+            <section class="info-section">
+                <h3>Telepítés</h3>
+                <p>A program Debian-alapú rendszeren <code>.deb</code> csomagból telepíthető.</p>
+
+                <p>Telepítés helyi csomagból:</p>
+                <pre><code>sudo apt install ./monitor-config_*.deb</code></pre>
+
+                <p>Telepítés után indítható:</p>
+                <pre><code>monitor-config</code></pre>
+
+                <p>A grafikus alkalmazás az alkalmazásmenüből is elérhető.</p>
+            </section>
+
+            <section class="info-section">
+                <h3>Profilok testreszabása</h3>
+                <p>
+                    A profilok alapja az <code>xrandr</code>, illetve a
+                    <code>kscreen-doctor</code> aktuálisan érvényes kimenete.
+                    Ezt kell bemásolni a megfelelő fájlba:
+                </p>
+                <ul class="meta-list">
+                    <li><code>/home/monitor-config/kscreen-input.txt</code></li>
+                    <li><code>/home/monitor-config/xrandr-input.txt</code></li>
+                </ul>
+                <p>
+                    attól függően, melyik módot használod. Ez a rész a
+                    dokumentáció legrészletesebben bővülő pontja lesz.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Eltávolítás</h3>
+                <p>
+                    Mivel a program megbízhatóan nem jelenik meg a Discover
+                    szoftverközpontban, eltávolítani terminálból lehet:
+                </p>
+                <pre><code>sudo apt remove monitor-config
+sudo apt purge monitor-config</code></pre>
+                <p>
+                    A <code>purge</code> a konfigurációs fájlokat is eltávolítja,
+                    a <code>remove</code> ezeket megtartja.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Hibajelentés</h3>
+                <p>
+                    Hibát vagy javaslatot a projekt GitHub oldalán, az Issues
+                    fülön lehet jelezni.
+                </p>
+                <a href="https://github.com/szabogergely26/Kijelzo/issues">Hibajelentés a GitHub-on »</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
