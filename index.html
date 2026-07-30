@@ -39,39 +39,123 @@
                 </p>
             </section>
 
-            <section class="featured">
-                <h2>Kiemelt alkalmazás</h2>
+            <div id="featured-root"></div>
 
-                <article class="featured-card">
-                    <div class="featured-text">
-                        <h3>Pénzügyi Napló</h3>
-                        <p>
-                            Személyes pénzügyi nyilvántartó alkalmazás havi áttekintéssel,
-                            tranzakciókezeléssel, statisztikákkal, számlákkal és aranyszámla modullal.
-                        </p>
+            <script>
+                /* ============================================================
+                BEÁLLÍTÁSOK — ezt a részt szerkeszd a saját projektedhez
+                ============================================================ */
+            const FEATURED_CONFIG = {
+                ENABLED: true,          // false = csak az első slide jelenik meg, statikus kártyaként, nyilak/pöttyök nélkül
+                AUTOPLAY_MS: 5000,      // automatikus váltás ennyi ms-onként (0 = nincs automatikus váltás)
+                TRANSITION: 0,          // 1 = áttűnés (fade), 0 = csúsztatás (balról-jobbra)
+                SLIDES: [
+                    {
+                        eyebrow: "Legújabb",
+                        title: "Filmek-Adatbázis",
+                        desc: "Saját film- és sorozatnyilvántartó alkalmazás — kereséssel, értékeléssel és személyes listákkal.",
+                        ctaText: "Megnézem »",
+                        ctaHref: "projektek/filmek-adatbazis.html",
+                        image: "kepernyokepek/Filmek-Adatbazis/1.png",
+                        bgColor: "#1b1f24",
+                        theme: "dark"
+                    },
+                    {
+                        eyebrow: "Alkalmazás",
+                        title: "Pénzügyi Napló",
+                        desc: "Egyszerű, letölthető Linux (.deb) alkalmazás a napi kiadások és bevételek követésére.",
+                        ctaText: "Letöltés »",
+                        ctaHref: "https://szabogergely26.github.io/penzugyi-naplo/pool/main/p/penzugyi-naplo/penzugyi-naplo.deb",
+                        image: null,
+                        bgColor: "#f5f8fb",
+                        theme: "light"
+                    }
+                ]
+            };
+    
+            /* ============================================================ */
 
-                        <ul class="meta-list">
-                            <li><strong>Platform:</strong> Debian GNU/Linux, Windows</li>
-                            <li><strong>Állapot:</strong> Stabil / Preview</li>
-                            <li><strong>Licenc:</strong> GPL-3.0</li>
-                        </ul>
+            function renderFeatured(config){
+            const root = document.getElementById('featured-root');
+                root.innerHTML = '';
 
-                        <div class="button-row">
-                            <a href="https://szabogergely26.github.io/penzugyi-naplo/pool/main/p/penzugyi-naplo/penzugyi-naplo.deb" class="button primary">Letöltés (deb)</a>
-                            <a href="kepernyokepek/index.html" class="button">Képernyőképek</a>
-                            <a href="https://github.com/szabogergely26/penzugyi-naplo" class="button">Forráskód</a>
-                        </div>
+                if(!config.ENABLED || config.SLIDES.length <= 1){
+                    const s = config.SLIDES[0];
+                    root.innerHTML = `
+                        <div class="single-card slide theme-${s.theme} active" style="background-color:${s.bgColor}">
+                            <div class="slide-thumb">
+                                ${s.image ? `<img src="${s.image}" alt="${s.title}">` : '<span class="slide-thumb-placeholder">Képernyőkép ide</span>'}
+                            </div>
+                            <div class="slide-body">
+                                <p class="slide-eyebrow">${s.eyebrow}</p>
+                                <h2 class="slide-title">${s.title}</h2>
+                                <p class="slide-desc">${s.desc}</p>
+                                <a class="button primary" href="${s.ctaHref}">${s.ctaText}</a>
+                            </div>
+                        </div>`;
+                    return;
+                }
+
+                let current = 0;
+                let timer = null;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'featured ' + (config.TRANSITION === 0 ? 'anim-slide' : 'anim-fade');
+                wrapper.innerHTML = `
+                    <div class="featured-track">
+                        <button class="nav-arrow nav-prev" aria-label="Előző">&#10094;</button>
+                        <button class="nav-arrow nav-next" aria-label="Következő">&#10095;</button>
+                        ${config.SLIDES.map((s,i) => `
+                            <div class="slide theme-${s.theme}${i===0 ? ' active' : ''}" data-index="${i}" style="background-color:${s.bgColor}">
+                                <div class="slide-thumb">
+                                    ${s.image ? `<img src="${s.image}" alt="${s.title}">` : '<span class="slide-thumb-placeholder">Képernyőkép ide</span>'}
+                                </div>
+                                <div class="slide-body">
+                                    <p class="slide-eyebrow">${s.eyebrow}</p>
+                                    <h2 class="slide-title">${s.title}</h2>
+                                    <p class="slide-desc">${s.desc}</p>
+                                    <a class="button primary" href="${s.ctaHref}">${s.ctaText}</a>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
+                <div class="dots">
+                    ${config.SLIDES.map((_,i) => `<button class="dot${i===0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i+1}"></button>`).join('')}
+                </div>
+                `;
+  root.appendChild(wrapper);
 
-                    <!-- Platform ikonok bal alul, ugyanúgy mint a kisebb kártyáknál -->
-                    <div class="card-footer">
-                        <span class="platform-icons">
-                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
-                            <img src="assets/icons/windows.svg" alt="Windows" width="16" height="16">
-                        </span>
-                    </div>
-                </article>
-            </section>
+  const slides = wrapper.querySelectorAll('.slide');
+  const dots = wrapper.querySelectorAll('.dot');
+
+  function goTo(index){
+    current = (index + config.SLIDES.length) % config.SLIDES.length;
+    slides.forEach((el,i) => el.classList.toggle('active', i === current));
+    dots.forEach((el,i) => el.classList.toggle('active', i === current));
+  }
+
+  function startAutoplay(){
+    if(config.AUTOPLAY_MS > 0){
+      timer = setInterval(() => goTo(current + 1), config.AUTOPLAY_MS);
+    }
+  }
+  function stopAutoplay(){
+    if(timer) clearInterval(timer);
+  }
+
+  wrapper.querySelector('.nav-prev').addEventListener('click', () => { goTo(current - 1); });
+  wrapper.querySelector('.nav-next').addEventListener('click', () => { goTo(current + 1); });
+  dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+
+  wrapper.addEventListener('mouseenter', stopAutoplay);
+  wrapper.addEventListener('mouseleave', startAutoplay);
+
+  startAutoplay();
+}
+
+renderFeatured(FEATURED_CONFIG);
+</script>
+
 
            <section class="app-grid">
 

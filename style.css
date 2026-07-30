@@ -634,3 +634,185 @@ a:hover {
     background: #8caac5;
     border-radius: 5px;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Kiemelt alkalmazás carousel (featured-root) */
+
+.featured-track {
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 34px;
+    pointer-events: none;
+}
+
+.slide.active {
+    pointer-events: auto;
+}
+
+/* ==================================================================
+   ÁTMENETI EFFEKT
+   A HTML/JS oldalon a FEATURED_CONFIG.TRANSITION dönti el melyik fusson:
+   TRANSITION: 1 -> áttűnés (fade), TRANSITION: 0 -> csúsztatás
+   Itt lent nincs mit szerkeszteni, csak a fenti index.html-ben a számot.
+   ================================================================== */
+
+.featured.anim-fade .slide {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.featured.anim-fade .slide.active {
+    opacity: 1;
+}
+
+.featured.anim-slide .slide {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 1.4s ease, transform 2.4s ease;
+}
+
+.featured.anim-slide .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-thumb {
+    flex: 0 0 220px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.slide-thumb-placeholder {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #8a97a5;
+}
+
+.slide-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.slide-eyebrow {
+    margin: 0 0 6px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.slide-body .slide-title {
+    margin: 0 0 8px 0;
+}
+
+.slide-desc {
+    margin: 0 0 16px 0;
+    max-width: 60ch;
+}
+
+.slide.theme-dark .slide-eyebrow {
+    color: #8ec7f2;
+}
+
+.slide.theme-dark .slide-title {
+    color: #ffffff;
+}
+
+.slide.theme-dark .slide-desc {
+    color: #d7e3ee;
+}
+
+.slide.theme-light .slide-eyebrow {
+    color: #4e88ba;
+}
+
+.slide.theme-light .slide-title {
+    color: #254f75;
+}
+
+.slide.theme-light .slide-desc {
+    color: #3d4c5a;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffffff 0%, #dce8f4 100%);
+    border: 1px solid #8caac5;
+    color: #1f4d73;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+}
+
+.nav-arrow:hover {
+    background: linear-gradient(180deg, #3f78aa 0%, #26577f 100%);
+    color: #ffffff;
+    border-color: #214f77;
+}
+
+.nav-prev {
+    left: 6px;
+}
+
+.nav-next {
+    right: 6px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c7d5e3;
+    border: 1px solid #8caac5;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #2f638f;
+    border-color: #214f77;
+}
+
+
