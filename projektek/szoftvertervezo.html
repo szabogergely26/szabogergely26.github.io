@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szoftvertervező – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="../letoltesek/index.html">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="../index.html">« Vissza a főoldalra</a></p>
+
+            <!-- Fejléc: név, rövid leírás, közvetlen letöltés gomb -->
+            <section class="featured">
+                <h2>Szoftvertervező</h2>
+
+                <article class="featured-card">
+                    <div class="featured-text">
+                        <p>
+                            Helyi adatkezelésű tervező alkalmazás KDE Plasma környezethez.
+                            Projektek, feladatok és határidők átlátható nyilvántartására,
+                            egyszerű, gyors kezelőfelülettel.
+                        </p>
+
+                        <ul class="meta-list">
+                            <li><strong>Platform:</strong> Debian GNU/Linux (KDE Plasma)</li>
+                            <li><strong>Állapot:</strong> Stabil</li>
+                            <li><strong>Licenc:</strong> GPL-3.0</li>
+                        </ul>
+
+                        <!-- Közvetlen .deb letöltés, mindig a legfrissebb Release-ből -->
+                        <div class="button-row">
+                            <a href="https://github.com/szabogergely26/szoftver-tervezo/releases/latest/download/Szoftver-tervezo.deb" class="button primary" download>
+                                Letöltés
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Mi ez? szekció -->
+            <section class="info-section">
+                <h3>Mi ez?</h3>
+                <p>
+                    A Szoftvertervező egy könnyű, helyi adatbázisra épülő alkalmazás, amivel
+                    projekteket és a hozzájuk tartozó feladatokat lehet nyilvántartani, egyszerű,
+                    áttekinthető felületen, felesleges felhő-függőségek nélkül.
+                </p>
+            </section>
+
+            <!-- Képernyőképek -->
+            <!-- Nézetváltó: Rács / Szalag -->
+            <div class="view-toggle-row">
+                <input type="checkbox" id="view-toggle" class="view-toggle-input">
+                <label for="view-toggle" class="view-toggle-label"></label>
+            </div>
+
+            <!-- Képernyőképek -->
+            <section class="screenshot-frame">
+                <h3>Képernyőképek</h3>
+                <div class="screenshot-grid">
+                    <a href="#lightbox-1" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/1.png" alt="Szoftvertervező képernyőkép 1">
+                    </a>
+                    <a href="#lightbox-2" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/2.png" alt="Szoftvertervező képernyőkép 2">
+                    </a>
+                    <a href="#lightbox-3" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/3.png" alt="Szoftvertervező képernyőkép 3">
+                    </a>
+                    <a href="#lightbox-4" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/4.png" alt="Szoftvertervező képernyőkép 4">
+                    </a>
+                    <a href="#lightbox-5" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/5.png" alt="Szoftvertervező képernyőkép 5">
+                    </a>
+                    <a href="#lightbox-6" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/6.png" alt="Szoftvertervező képernyőkép 6">
+                    </a>
+                    <a href="#lightbox-7" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/7.png" alt="Szoftvertervező képernyőkép 7">
+                    </a>
+                    <a href="#lightbox-8" class="thumb-link">
+                        <img src="../kepernyokepek/Szoftvertervezo/8.png" alt="Szoftvertervező képernyőkép 8">
+                    </a>
+                </div>
+            </section>
+
+            <!-- Lightbox overlay-ek (kattintásra bezáródnak) -->
+            <a href="#" id="lightbox-1" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/1.png" alt="Szoftvertervező képernyőkép 1 nagyítva"></a>
+            <a href="#" id="lightbox-2" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/2.png" alt="Szoftvertervező képernyőkép 2 nagyítva"></a>
+            <a href="#" id="lightbox-3" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/3.png" alt="Szoftvertervező képernyőkép 3 nagyítva"></a>
+            <a href="#" id="lightbox-4" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/4.png" alt="Szoftvertervező képernyőkép 4 nagyítva"></a>
+            <a href="#" id="lightbox-5" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/5.png" alt="Szoftvertervező képernyőkép 5 nagyítva"></a>
+            <a href="#" id="lightbox-6" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/6.png" alt="Szoftvertervező képernyőkép 6 nagyítva"></a>
+            <a href="#" id="lightbox-7" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/7.png" alt="Szoftvertervező képernyőkép 7 nagyítva"></a>
+            <a href="#" id="lightbox-8" class="lightbox"><img src="../kepernyokepek/Szoftvertervezo/8.png" alt="Szoftvertervező képernyőkép 8 nagyítva"></a>
+
+            <!-- Telepítés szekció -->
+            <section class="download-section" id="telepites">
+                <h3>Telepítés</h3>
+                <div class="button-row">
+                    <a href="https://github.com/szabogergely26/szoftver-tervezo/releases/latest/download/Szoftver-tervezo.deb" class="button primary" download>
+                        Linux (Debian .deb) – legfrissebb
+                    </a>
+
+                    <a href="#apt-telepites" class="button">APT repository</a>
+
+                    <a href="https://github.com/szabogergely26/szoftver-tervezo" class="button">Forráskód</a>
+                </div>
+            </section>
+
+            
+            <!-- APT telepítési instrukciók -->
+            <section class="info-section" id="apt-telepites">
+                <h3>Telepítés APT tárolóból</h3>
+                <p>
+                    A Szoftvertervező saját APT tárolóból is telepíthető és frissíthető,
+                    így nem kell kézzel letöltened az új verziókat — elég egy
+                    <code>apt update &amp;&amp; apt upgrade</code>.
+                </p>
+                <pre><code>curl -fsSL https://szabogergely26.github.io/szoftver-tervezo/tervezo-archive-keyring.gpg | sudo tee /usr/share/keyrings/tervezo-archive-keyring.gpg > /dev/null
+                    echo "deb [signed-by=/usr/share/keyrings/tervezo-archive-keyring.gpg] https://szabogergely26.github.io/szoftver-tervezo/ stable main" | sudo tee /etc/apt/sources.list.d/tervezo.list
+            sudo apt update
+            sudo apt install tervezo
+                </code></pre>
+            </section>
+
+            <!-- Dokumentáció -->
+            <section class="info-section">
+                <h3>Dokumentáció</h3>
+                <p>
+                    Használati útmutató és gyakran ismételt kérdések a közös dokumentáció oldalon
+                    érhetők el.
+                </p>
+                <a href="../dokumentacio/index.html">Dokumentáció megnyitása »</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
