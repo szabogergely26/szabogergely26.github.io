@@ -17,8 +17,8 @@
          <!-- AI-megjegyzés sáv -->
         <div class="ai-bar" id="ai-bar">
         <p class="ai-bar-text">
-            🤖 A weboldal és a bemutatott projektek nagy része AI (Claude) segítségével
-            készül, emberi tervezés, irányítás és folyamatos ellenőrzés mellett.
+            🤖 <b>A weboldal és a bemutatott projektek nagy része AI (Claude) segítségével
+            készül, emberi tervezés, irányítás és folyamatos ellenőrzés mellett.</b>
         </p>
         <button class="ai-bar-accept" id="ai-bar-accept">Tudomásul vettem</button>
     </div>
@@ -29,7 +29,12 @@
             const acceptBtn = document.getElementById('ai-bar-accept');
 
             acceptBtn.addEventListener('click', () => {
-                bar.classList.add('hidden');
+                bar.classList.add('hiding');
+                // az animáció végén (400ms) teljesen kivesszük a DOM-ból,
+                // hogy ne foglaljon helyet és ne legyen fókuszba kattintható
+                setTimeout(() => {
+                    bar.style.display = 'none';
+                }, 400);
             });
         })();
     </script>

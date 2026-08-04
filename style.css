@@ -875,9 +875,9 @@ a:hover {
     gap: 14px;
     flex-wrap: wrap;
     padding: 8px 20px;
-    background: linear-gradient(180deg, #eaf7ee 0%, #d9f0df 100%);
-    border-bottom: 1px solid #8fc9a0;
-    color: #1f4d31;
+    background: linear-gradient(180deg, #fdeceb 0%, #fbdad8 100%);
+    border-bottom: 1px solid #e39a96;
+    color: #b23a34;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     line-height: 1.4;
@@ -907,8 +907,36 @@ a:hover {
     border-color: #2c5c3b;
 }
 
-.ai-bar.hidden {
-    display: none;
+.ai-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #fdeceb 0%, #fbdad8 100%);
+    border-bottom: 1px solid #e39a96;
+    box-shadow: 0 4px 12px rgba(178, 58, 52, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    color: #b23a34;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.35s ease, padding 0.4s ease;
+}
+
+.ai-bar.hiding {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-width: 0;
+    box-shadow: none;
 }
 
 @media (max-width: 600px) {
