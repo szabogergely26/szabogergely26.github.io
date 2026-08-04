@@ -14,6 +14,30 @@
 
     <div class="page">
         <!-- Fejléc -->
+         <!-- AI-megjegyzés sáv -->
+        <div class="ai-bar" id="ai-bar">
+        <p class="ai-bar-text">
+            🤖 A weboldal és a bemutatott projektek nagy része AI (Claude) segítségével
+            készül, emberi tervezés, irányítás és folyamatos ellenőrzés mellett.
+        </p>
+        <button class="ai-bar-accept" id="ai-bar-accept">Tudomásul vettem</button>
+    </div>
+
+    <script>
+        (function () {
+            const bar = document.getElementById('ai-bar');
+            const acceptBtn = document.getElementById('ai-bar-accept');
+
+            acceptBtn.addEventListener('click', () => {
+                bar.classList.add('hidden');
+            });
+        })();
+    </script>
+
+
+
+
+
         <header class="site-header">
             <div class="header-inner">
                 <div class="header-titles">
