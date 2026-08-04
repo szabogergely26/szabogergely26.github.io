@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Config letöltés – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="index.html" class="active">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="index.html">« Vissza a Letöltésekhez</a></p>
+
+            <section class="info-section">
+                <h3>Monitor Config letöltés</h3>
+                <p>
+                    Válaszd ki a videokártyád szerinti csomagot. A hibrid GPU (AMD+NVIDIA)
+                    build jelenleg elérhető, az AMD-only build még fejlesztés alatt áll.
+                </p>
+            </section>
+
+            <div class="feature-grid">
+
+                <div class="featured-card">
+                    <h4>Hibrid GPU (AMD+NVIDIA)</h4>
+                    <p><strong>Verzió:</strong> 0.1.5</p>
+                    <p>
+                        A <code>.deb</code> telepítése után az APT-forrás (<code>lenovo-loq</code> suite)
+                        és a GPG-kulcs automatikusan bekerül a rendszerbe, tehát a <code>sudo apt update</code>
+                        / <code>upgrade</code> ezután magától működik — nincs szükség kézi
+                        <code>sources.list</code> szerkesztésre, mert a keyring nincs is külön publikálva a Pages-en.
+                    </p>
+                    <div class="button-row">
+                        <a href="https://github.com/szabogergely26/Kijelzo/releases/download/v0.1.5-lenovo-loq/monitor-config_all.deb" class="button primary" download>
+                            Letöltés (.deb)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <h4>AMD videokártyák</h4>
+                    <p>
+                        Ez a build kizárólag AMD GPU-s rendszerekhez készül, jelenleg még
+                        fejlesztés alatt áll. Addig is a Hibrid GPU (AMD+NVIDIA) build ajánlott,
+                        az AMD-only rendszereken is működik.
+                    </p>
+                    <div class="button-row">
+                        <span class="button disabled">Hamarosan</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
