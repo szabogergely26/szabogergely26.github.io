@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénzügyi Napló – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="../letoltesek/index.html">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="../index.html">« Vissza a főoldalra</a></p>
+
+            <!-- Fejléc: név, rövid leírás, közvetlen letöltés gomb (Stabil ág) -->
+            <section class="featured">
+                <h2>Pénzügyi Napló</h2>
+
+                <article class="featured-card">
+                    <div class="featured-text">
+                        <p>
+                            Egyszerű, helyi adatkezelésű alkalmazás a napi kiadások és bevételek
+                            áttekinthető követésére, kategóriák és kimutatások segítségével.
+                        </p>
+
+                        <ul class="meta-list">
+                            <li><strong>Platform:</strong> Debian GNU/Linux (KDE Plasma)</li>
+                            <li><strong>Állapot:</strong> Stabil</li>
+                            <li><strong>Licenc:</strong> GPL-3.0</li>
+                        </ul>
+
+                        <!-- Közvetlen .deb letöltés, nem ugrás -->
+                        <div class="button-row">
+                            <a href="https://szabogergely26.github.io/penzugyi-naplo/penzugyi-naplo-stable.deb" class="button primary" download>
+                                Letöltés
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Mi ez? szekció: rövid, közérthető bemutatás -->
+            <section class="info-section">
+                <h3>Mi ez?</h3>
+                <p>
+                    A Pénzügyi Napló egy helyi, offline pénzügyi nyilvántartó alkalmazás. Kiadásaid
+                    és bevételeid kategorizálva, áttekinthető felületen rögzítheted, és a
+                    kimutatások segítségével könnyen nyomon követheted, hova mennek a pénzeid.
+                </p>
+                <p>
+                    Nincs szükség internetkapcsolatra vagy külső fiókra — minden adat helyben,
+                    a saját gépeden tárolódik.
+                </p>
+            </section>
+
+            <!-- Képernyőképek -->
+            <section class="screenshot-frame">
+                <h3>Képernyőképek</h3>
+                <div class="screenshot-grid">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/1.png" alt="Pénzügyi Napló 1">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/2.png" alt="Pénzügyi Napló 2">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/3.png" alt="Pénzügyi Napló 3">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/4.png" alt="Pénzügyi Napló 4">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/5.png" alt="Pénzügyi Napló 5">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/6.png" alt="Pénzügyi Napló 6">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/7.png" alt="Pénzügyi Napló 7">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/8.png" alt="Pénzügyi Napló 8">
+                    <img src="../kepernyokepek/Penzugyi-Naplo/9.png" alt="Pénzügyi Napló 9">
+                </div>
+            </section>
+
+            <!-- Telepítés szekció: két ág — Stabil és Előzetes -->
+            <section class="download-section" id="telepites">
+                <h3>Telepítés</h3>
+
+                <div class="install-branch">
+                    <h4 class="install-branch-title">
+                        <span class="badge-inline badge-stable">Stabil</span>
+                        Ajánlott a legtöbb felhasználónak
+                    </h4>
+                    <div class="button-row">
+                        <a href="https://szabogergely26.github.io/penzugyi-naplo/penzugyi-naplo-stable.deb" class="button primary" download>
+                            Linux (Debian .deb)
+                        </a>
+                        <a href="https://github.com/szabogergely26/penzugyi-naplo" class="button">Forráskód</a>
+                    </div>
+                </div>
+
+                <div class="install-branch">
+                    <h4 class="install-branch-title">
+                        <span class="badge-inline badge-preview">Előzetes</span>
+                        Legújabb funkciók, kevésbé tesztelt
+                    </h4>
+                    <div class="button-row">
+                        <a href="https://szabogergely26.github.io/penzugyi-naplo/penzugyi-naplo-preview.deb" class="button primary" download>
+                            Linux (Debian .deb)
+                        </a>
+                        <a href="https://github.com/szabogergely26/penzugyi-naplo/tree/Preview" class="button">Forráskód</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dokumentáció -->
+            <section class="info-section">
+                <h3>Dokumentáció</h3>
+                <p>
+                    Használati útmutató és gyakran ismételt kérdések a közös dokumentáció oldalon
+                    érhetők el. Fejlesztői/technikai dokumentáció később kerül fel.
+                </p>
+                <a href="../dokumentacio/index.html">Dokumentáció megnyitása »</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

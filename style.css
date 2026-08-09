@@ -185,6 +185,32 @@ a:hover {
     background: linear-gradient(180deg, #2f638f 0%, #1f4669 100%);
 }
 
+/* Telepítés szekció több ága (pl. Stabil / Előzetes) — újrafelhasználható minta */
+.install-branch {
+    margin-top: 40px;
+}
+
+.install-branch:first-of-type {
+    margin-top: 10px;
+}
+
+.install-branch-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: normal;
+    color: #4a5b6c;
+}
+
+
+/* Telepítési szekció vége*/
+
+.install-branch .button-row {
+    margin-top: 10px;
+}
+
 .app-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
