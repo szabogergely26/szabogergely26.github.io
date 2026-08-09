@@ -71,7 +71,147 @@
                 </p>
             </section>
 
-            <div id="featured-root"></div>
+            <script>
+                /* ============================================================
+                FRISSÍTÉS / JAVÍTÁS ÁLLAPOTOK — ezt a részt szerkeszd, ha egy
+                projekt frissült vagy éppen javítás alatt áll.
+
+                Minden bejegyzés kulcsa az app-card projektkulcsával egyezik
+                meg (lásd lejjebb az app-grid data-project attribútumait):
+                    filmek-adatbazis, penzugyi-naplo, monitor-config,
+                    easyeffects, retro-game-launcher, szoftvertervezo
+
+                type: "updated" = Frissült (kék), "fixing" = Javítás alatt (sárga)
+                Ha egy projektnek nincs bejegyzése, nem jelenik meg semmi jelzés
+                sem a kártyáján, sem a listában.
+                ============================================================ */
+                const UPDATES_CONFIG = [
+                    {
+                        project: "filmek-adatbazis",
+                        type: "updated",
+                        title: "Új : Első indítási varázsló és hibajavítások",
+                        date: "2026.07.22",
+                        details: [
+                            "Telepítés után Varázslóba választhatod ki hogy mivel kezdesz",
+                        ]
+                    },
+                    {
+                        project: "monitor-config",
+                        type: "fixing",
+                        title: "Több profil stabil használata egyszerű felhasználó által beállítható módon",
+                        date: "2026.08.08",
+                        details: [
+                            "Ritkán előforduló hiba TV-profilra váltáskor.- Javítva",
+                            "A letöltési oldalon külön AMD konfigurációkra és külön hybrid laptopokhoz."
+                        ]
+                    },
+                    {
+                        project: "szoftvertervezo",
+                        type: "updated",
+                        title: "Új képernyőkép-galéria",
+                        date: "2026.08.02",
+                        details: [
+                            "8 új képernyőkép került fel a projekt oldalára."
+                        ]
+                    },
+                ];
+
+                const APP_NAMES = {
+                    "filmek-adatbazis": "Filmek Adatbázis",
+                    "penzugyi-naplo": "Pénzügyi Napló",
+                    "monitor-config": "Monitor Config",
+                    "easyeffects": "EasyEffects Quick Access",
+                    "retro-game-launcher": "Retro Game Launcher",
+                    "szoftvertervezo": "Szoftvertervező"
+                };
+
+                function openUpdateModal(entry){
+                    const overlay = document.createElement('div');
+                    overlay.className = 'update-modal-overlay';
+                    const kindClass = entry.type === 'updated' ? 'kind-updated' : 'kind-fixing';
+                    const kindLabel = entry.type === 'updated' ? 'Frissült' : 'Javítás alatt';
+                    overlay.innerHTML = `
+                        <div class="update-modal" role="dialog" aria-modal="true">
+                            <button class="update-modal-close" aria-label="Bezárás">&times;</button>
+                            <span class="update-modal-kind ${kindClass}">${kindLabel}</span>
+                            <h3>${APP_NAMES[entry.project] || entry.project}</h3>
+                            <p class="update-modal-date">${entry.date}</p>
+                            <div class="update-modal-body">
+                                <p>${entry.title}</p>
+                                ${entry.details && entry.details.length ? `<ul>${entry.details.map(d => `<li>${d}</li>`).join('')}</ul>` : ''}
+                            </div>
+                        </div>`;
+                    document.body.appendChild(overlay);
+
+                    function close(){ overlay.remove(); }
+                    overlay.querySelector('.update-modal-close').addEventListener('click', close);
+                    overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+                    document.addEventListener('keydown', function onEsc(e){
+                        if(e.key === 'Escape'){ close(); document.removeEventListener('keydown', onEsc); }
+                    });
+                }
+
+                function renderUpdateBadges(){
+                    UPDATES_CONFIG.forEach(entry => {
+                        const card = document.querySelector(`.app-card[data-project="${entry.project}"] .card-thumb`);
+                        if(!card) return;
+                        const btn = document.createElement('button');
+                        btn.className = 'update-badge ' + (entry.type === 'updated' ? 'update-badge-updated' : 'update-badge-fixing');
+                        btn.textContent = entry.type === 'updated' ? 'Frissült' : 'Javítás alatt';
+                        btn.addEventListener('click', () => openUpdateModal(entry));
+                        card.appendChild(btn);
+                    });
+                }
+
+                function renderUpdatesBox(){
+                    const box = document.getElementById('updates-box');
+                    const updated = UPDATES_CONFIG.filter(e => e.type === 'updated');
+                    const fixing = UPDATES_CONFIG.filter(e => e.type === 'fixing');
+
+                    function renderList(entries){
+                        if(!entries.length) return '<p class="updates-empty">Nincs jelenleg bejegyzés.</p>';
+                        return `<ul>${entries.map((e, i) => `
+                            <li>
+                                <button class="update-entry" data-list="${e === entries[i] ? '' : ''}" data-idx="${UPDATES_CONFIG.indexOf(e)}">
+                                    <span class="entry-app">${APP_NAMES[e.project] || e.project}</span>
+                                    ${e.title}
+                                </button>
+                            </li>`).join('')}</ul>`;
+                    }
+
+                    box.innerHTML = `
+                        <div>
+                            <h4 class="updates-heading-updated">🔵 Frissítve</h4>
+                            ${renderList(updated)}
+                        </div>
+                        <div>
+                            <h4 class="updates-heading-fixing">🟠 Javítva / folyamatban</h4>
+                            ${renderList(fixing)}
+                        </div>
+                    `;
+
+                    box.querySelectorAll('.update-entry').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const entry = UPDATES_CONFIG[Number(btn.dataset.idx)];
+                            if(entry) openUpdateModal(entry);
+                        });
+                    });
+                }
+
+            </script>
+
+            <div class="featured-row">
+                <div id="featured-root"></div>
+                <div class="updates-window">
+                    <div class="updates-titlebar">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                        <span class="updates-titlebar-label">Hírek</span>
+                    </div>
+                    <aside class="updates-box" id="updates-box"></aside>
+                </div>
+            </div>
 
             <script>
                 /* ============================================================
@@ -201,7 +341,7 @@ renderFeatured(FEATURED_CONFIG);
 
            <section class="app-grid">
 
-                <article class="app-card">
+                <article class="app-card" data-project="filmek-adatbazis">
                     <div class="card-thumb">
                         <img src="kepernyokepek/Filmek-Adatbazis/1.png" alt="Filmek Adatbázis">
                         <span class="badge badge-preview">Preview</span>
@@ -226,7 +366,7 @@ renderFeatured(FEATURED_CONFIG);
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" data-project="penzugyi-naplo">
                     <div class="card-thumb">
                         <img src="kepernyokepek/Penzugyi-Naplo/1.png" alt="Pénzügyi Napló">
                         <span class="badge badge-stable">Stabil</span>
@@ -247,7 +387,7 @@ renderFeatured(FEATURED_CONFIG);
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" data-project="monitor-config">
                     <div class="card-thumb">
                         <img src="kepernyokepek/monitor-config/1.png" alt="Monitor Config">
                         <span class="badge badge-stable">Stabil</span>
@@ -268,7 +408,7 @@ renderFeatured(FEATURED_CONFIG);
                     </div>
                 </article>
 
-                <article class="app-card">
+                <article class="app-card" data-project="easyeffects">
                     <div class="card-thumb">
                         <img src="kepernyokepek/EasyEffects/1.png" alt="EasyEffects Quick Access">
                             <span class="badge badge-stable">Stabil</span>
@@ -289,7 +429,7 @@ renderFeatured(FEATURED_CONFIG);
                 </div>
                 </article>
 
-    <article class="app-card">
+    <article class="app-card" data-project="retro-game-launcher">
         <div class="card-thumb">
             <img src="kepernyokepek/Retro-Game-Launcher/1.png" alt="Retro Game Launcher">
             <span class="badge badge-dev">Fejlesztés alatt</span>
@@ -310,7 +450,7 @@ renderFeatured(FEATURED_CONFIG);
         </div>
     </article>
 
-    <article class="app-card">
+    <article class="app-card" data-project="szoftvertervezo">
                     <div class="card-thumb">
                         <img src="kepernyokepek/Szoftvertervezo/1.png" alt="Szoftvertervező">
                         <span class="badge badge-stable">Stabil</span>
@@ -343,8 +483,12 @@ renderFeatured(FEATURED_CONFIG);
 
 
 
-
 </section>
+
+            <script>
+                renderUpdateBadges();
+                renderUpdatesBox();
+            </script>
 
             <section class="info-columns">
 

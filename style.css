@@ -472,6 +472,270 @@ a:hover {
 .badge-preview { background: #c78a2e; }
 .badge-dev { background: #a04f4f; }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Frissítés/hiba állapot-jelvény a kártyákon (bal felső sarok) — csak akkor jelenik meg,
+   ha az adott kártyához tartozik updateStatus adat. Kattintható, modalt nyit. */
+.update-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 3px 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #ffffff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.update-badge:hover {
+    filter: brightness(1.08);
+}
+
+.update-badge-updated { background: #2f6fb0; }
+.update-badge-fixing  { background: #c78a2e; }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Kiemelt sáv: a carousel a megszokott helyén, a Frissítések/Javítások doboz
+   viszont "kitör" a fehér .page keretből, és mellette lebeg egy önálló panelként.
+   Ehhez a .featured-row a pozicionálási referenciapont (position: relative). */
+.featured-row {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.featured-row .featured,
+.featured-row .single-card {
+    margin-bottom: 0;
+}
+
+/* A .updates-box egy "ablak" keretben lebeg a carousel mellett, .featured-row-hoz
+   képest abszolút pozicionálva. A .updates-window a külső keret + címsor + árnyék,
+   a .updates-box marad a görgethető tartalom-terület. */
+
+.updates-window {
+    position: absolute;
+    top: -350px;
+    left: 105%;
+    width: 250px;
+    margin-left: 18px;
+    background: #f9fbfd;
+    border: 1px solid #a9bccf;
+    box-shadow: 0 18px 40px rgba(20, 40, 65, 0.28), 0 4px 10px rgba(20, 40, 65, 0.14);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.updates-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    background: linear-gradient(180deg, #4d7faa 0%, #315f88 100%);
+    border-bottom: 1px solid #244c70;
+}
+
+.updates-titlebar .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.updates-titlebar .dot-red { background: #e0605a; }
+.updates-titlebar .dot-yellow { background: #e0b555; }
+.updates-titlebar .dot-green { background: #5cb87a; }
+
+.updates-titlebar span.updates-titlebar-label {
+    margin-left: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #eef6ff;
+    letter-spacing: 0.02em;
+}
+
+.updates-box {
+    height: auto;
+    max-height: 500px;
+    width: 100%;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Ha a jobb oldali margó (ablak szél - .page szél) kisebb, mint amennyi a
+   panelnek + réseknek kellene, essen vissza a carousel alá — ez a
+   media query pontosan a .page képletéből (min(1180px, 100%-48px))
+   levezetett küszöbön vált. */
+@media (max-width: 1760px) {
+    .updates-window {
+        position: static;
+        margin-left: 0;
+        margin-top: 18px;
+        width: 100%;
+        top: auto;
+    }
+}
+
+.updates-box h4 {
+    margin: 0 0 8px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.updates-box h4.updates-heading-updated { color: #2f6fb0; }
+.updates-box h4.updates-heading-fixing  { color: #a06a1e; }
+
+.updates-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.updates-box li {
+    border-bottom: 1px dashed #d6e0ea;
+}
+
+.updates-box li:last-child {
+    border-bottom: none;
+}
+
+.updates-box button.update-entry {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 6px 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #1f2a35;
+    cursor: pointer;
+    line-height: 1.35;
+}
+
+.updates-box button.update-entry:hover {
+    background: #eef4fa;
+}
+
+.updates-box button.update-entry .entry-app {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #4e88ba;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 2px;
+}
+
+.updates-box .updates-empty {
+    font-size: 12px;
+    color: #8a97a5;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Modal a frissítés/hiba részleteinek megjelenítéséhez */
+.update-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 30, 40, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.update-modal {
+    background: #ffffff;
+    border: 1px solid #aebfd1;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px 26px;
+    position: relative;
+}
+
+.update-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    color: #6b7c8c;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.update-modal-close:hover {
+    color: #1f2a35;
+}
+
+.update-modal-kind {
+    display: inline-block;
+    padding: 3px 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.update-modal-kind.kind-updated { background: #2f6fb0; }
+.update-modal-kind.kind-fixing  { background: #c78a2e; }
+
+.update-modal h3 {
+    margin: 0 0 4px 0;
+    color: #254f75;
+}
+
+.update-modal .update-modal-date {
+    margin: 0 0 14px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #8a97a5;
+}
+
+.update-modal .update-modal-body {
+    margin: 0;
+}
+
+.update-modal .update-modal-body ul {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+}
+
+.update-modal .update-modal-body li {
+    margin-bottom: 4px;
+}
+
 /* Inline badge (nem abszolút pozicionálva) a doksi-kártyák láblécéhez */
 .badge-inline {
     position: static;
