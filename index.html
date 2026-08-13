@@ -97,12 +97,13 @@
                     },
                     {
                         project: "monitor-config",
-                        type: "fixing",
-                        title: "Több profil stabil használata egyszerű felhasználó által beállítható módon",
+                        type: "updated",
+                        title: "Több infó, részletekért kattints!",
                         date: "2026.08.08",
                         details: [
                             "Ritkán előforduló hiba TV-profilra váltáskor.- Javítva",
-                            "A letöltési oldalon külön AMD konfigurációkra és külön hybrid laptopokhoz."
+                            "A letöltési oldalon külön AMD konfigurációkra és külön hybrid laptopokhoz.",
+                            "A plasma-widgettel való kijelzőváltás után nem jelenik meg a plasma helyesen - Javításra vár."
                         ]
                     },
                     {
@@ -129,7 +130,7 @@
                     const overlay = document.createElement('div');
                     overlay.className = 'update-modal-overlay';
                     const kindClass = entry.type === 'updated' ? 'kind-updated' : 'kind-fixing';
-                    const kindLabel = entry.type === 'updated' ? 'Frissült' : 'Javítás alatt';
+                    const kindLabel = entry.type === 'updated' ? 'Frissült' : 'f';
                     overlay.innerHTML = `
                         <div class="update-modal" role="dialog" aria-modal="true">
                             <button class="update-modal-close" aria-label="Bezárás">&times;</button>
@@ -471,19 +472,7 @@ renderFeatured(FEATURED_CONFIG);
                     </div>
                 </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
+            </section>
 
             <script>
                 renderUpdateBadges();
