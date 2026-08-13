@@ -72,7 +72,7 @@
             </section>
 
             <script>
-                /* ============================================================
+                /* =========================================================================================================================
                 FRISSÍTÉS / JAVÍTÁS ÁLLAPOTOK — ezt a részt szerkeszd, ha egy
                 projekt frissült vagy éppen javítás alatt áll.
 
@@ -84,7 +84,12 @@
                 type: "updated" = Frissült (kék), "fixing" = Javítás alatt (sárga)
                 Ha egy projektnek nincs bejegyzése, nem jelenik meg semmi jelzés
                 sem a kártyáján, sem a listában.
-                ============================================================ */
+
+                Ez kb. a <script> blokkban van, a FEATURED_CONFIG közelében 
+                    (korábban a fájl elején, kb. 80-120. sor tájékán volt). 
+                Ha megtalálod a monitor-config kulcsú, type: "fixing" objektumot, azt kell törölni (vagy kikommentelni) a tömbből 
+                — ez egyszerre szedi le a kártyáról a narancssárga badge-et és a floating updates-box-ból is az adott bejegyzést.
+                ============================================================================================================================= */
                 const UPDATES_CONFIG = [
                     {
                         project: "filmek-adatbazis",
