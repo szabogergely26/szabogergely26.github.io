@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénzügyi Napló dokumentáció – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        code {
+            background: #eef3f8;
+            border: 1px solid #c7d5e3;
+            padding: 1px 5px;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+        h4 {
+            margin: 20px 0 6px 0;
+        }
+        .info-section h4:first-of-type {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="../letoltesek/index.html">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html" class="active">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="../dokumentacio/index.html">« Vissza a Dokumentációhoz</a></p>
+
+            <section class="intro-box">
+                <h2>Pénzügyi Napló – Dokumentáció</h2>
+                <p>
+                    A Pénzügyi Napló egy asztali alkalmazás a személyes pénzügyeid
+                    nyomon követésére: bevételek és kiadások rögzítése, közüzemi és
+                    szolgáltatói számlák befizetésének figyelése, egyenlegek és
+                    arany-megtakarítás áttekintése, valamint havi és éves
+                    statisztikák.
+                </p>
+                <p>
+                    Licenc: <strong>CC BY-NC-SA 4.0</strong>, non-commercial
+                    záradékkal kiegészítve — a szoftver nem árulható és nem
+                    terjeszthető pénzért, illetve nem építhető be más termékbe.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>A főablak felépítése</h3>
+                <p>
+                    A program indításkor egy nagy, maximalizált ablakban nyílik meg,
+                    a következő elrendezéssel:
+                </p>
+                <ul class="meta-list">
+                    <li><strong>Bal oldali sáv (modulválasztó)</strong> — váltás a
+                        <strong>Likviditás</strong> (napi pénzügyek) és az
+                        <strong>Aranyszámla</strong> (arany-megtakarítás) modul
+                        között.</li>
+                    <li><strong>Év-fülek</strong> — a modulválasztó mellett
+                        választható ki, melyik év adatait mutassa a program.</li>
+                    <li><strong>Szalag (ribbon)</strong> — gyors hozzáférés a
+                        leggyakoribb műveletekhez, fülekbe rendezve: Fő, Adatok,
+                        Nézet, Súgó.</li>
+                    <li><strong>Jobb oldali navigáció</strong> — a Likviditás modul
+                        oldalai: Kezdőlap, Tranzakciók, Statisztika, Számlák,
+                        Pénztárcák.</li>
+                </ul>
+                <p>
+                    A <strong>Nézet</strong> menüben (vagy a ribbon "Nézet" fülén)
+                    átválthatsz a klasszikus menüsoros és a szalag (ribbon)
+                    megjelenítés között, ízlés szerint.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Likviditás modul</h3>
+                <p>
+                    A napi pénzügyeid rögzítésére és áttekintésére szolgáló fő
+                    modul, öt aloldallal.
+                </p>
+
+                <h4>Kezdőlap</h4>
+                <p>
+                    Havi összesítőket mutat az aktív év tranzakcióiból: hónapról
+                    hónapra láthatók a bevételek, kiadások és a megtakarítás. Ha
+                    egy hónaphoz még nincs rögzített adat, ezt a felület
+                    egyértelműen jelzi. Egy hónapra kattintva részletes táblázatos
+                    nézet nyílik meg az adott hónap tételeiről.
+                </p>
+
+                <h4>Tranzakciók</h4>
+                <p>
+                    A tranzakciók listás, kereshető és szűrhető nézete. A
+                    keresőmezőben kategória vagy leírás szerint kereshetsz, minden
+                    tranzakciónál elérhető a Szerkesztés és Törlés funkció. Ha egy
+                    tranzakcióhoz részletezett tételek is tartoznak, ez a listában
+                    külön jelzésre kerül ("Tételrészletek elérhetők").
+                </p>
+
+                <h4>Új tranzakció rögzítése (varázsló)</h4>
+                <p>
+                    Az új tranzakció rögzítése lépésenkénti varázslóval történik
+                    (ribbon "Fő" fül → új tranzakció, vagy Fájl menü). A varázsló
+                    első lépésében választható ki a rögzítendő pénzmozgás típusa:
+                </p>
+                <ul class="meta-list">
+                    <li><strong>Bevétel</strong> — beérkező összeg, például
+                        fizetés, támogatás.</li>
+                    <li><strong>Kiadás</strong> — kimenő összeg, például vásárlás,
+                        étkezés.</li>
+                    <li><strong>Számlabefizetés</strong> — közüzemi vagy
+                        szolgáltatói számla befizetése (pl. Telekom, KalászNet,
+                        MVMNext, Vidanet, gáz).</li>
+                </ul>
+                <p>
+                    A további lépésekben megadható a tranzakció neve, kategóriája,
+                    leírása és dátuma. Számlabefizetés esetén a varázsló további,
+                    számla-specifikus mezőket is kér (pl. időszak kezdete/vége,
+                    számla sorszáma az időszakos számláknál, gáz esetén az
+                    óraállás m³/MJ-ban).
+                </p>
+
+                <h4>Statisztika</h4>
+                <p>Két fület tartalmaz:</p>
+                <ul class="meta-list">
+                    <li><strong>Általános</strong> — szöveges összefoglaló egy
+                        kiválasztott időszakról.</li>
+                    <li><strong>Diagramok</strong> — trenddiagram, havi
+                        bevétel/kiadás/megtakarítás oszlopdiagramja, és a kiadások
+                        kategóriák szerinti megoszlása.</li>
+                </ul>
+
+                <h4>Számlák</h4>
+                <p>
+                    A rendszeresen fizetendő közüzemi és szolgáltatói számlák
+                    áttekintése, két típusra bontva:
+                </p>
+                <ul class="meta-list">
+                    <li><strong>Havi számlák</strong> (pl. KalászNet) — egy hónapos
+                        rács-nézetben mutatja, melyik hónapban mennyi lett
+                        befizetve.</li>
+                    <li><strong>Időszakos számlák</strong> (pl. MVMNext) — az
+                        elszámolási időszak kezdetét, végét és — ha van — a számla
+                        sorszámát is mutatja.</li>
+                </ul>
+                <p>Minden számla-kártyán megjelenik a fizetés dátuma és állapota.</p>
+
+                <h4>Pénztárcák / Egyenlegek</h4>
+                <p>
+                    Készpénz, folyószámla és nemesfém-jellegű vagyonelemek kézi
+                    nyilvántartására szolgáló oldal. A Bank blokkban a
+                    folyószámla egyenlege követhető, a Kézi érték rögzítése
+                    panelen egy típus (Készpénz, Folyószámla, Nemesfémek), dátum
+                    és érték megadásával rögzíthető új állapot. Az Előzmények
+                    táblázat az utolsó 30 rögzített értéket mutatja (Dátum / Típus
+                    / Érték oszlopokkal).
+                </p>
+                <p>
+                    Fontos megkülönböztetés: ez <strong>nem</strong> ugyanaz, mint
+                    a "Számlák" oldal — a Pénztárcák a vagyon és egyenleg
+                    nyilvántartásáról szól, a Számlák a rendszeres fizetési
+                    kötelezettségekről.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Aranyszámla modul</h3>
+                <p>
+                    Az arany-megtakarítás áttekintésére és kezelésére szolgáló,
+                    önálló navigációval rendelkező modul (Kezdő / Kereskedés
+                    gombokkal a modulon belül).
+                </p>
+
+                <h4>Kezdő</h4>
+                <p>
+                    Az <strong>Aranyszámla</strong> fülön az "Aranytartalék" és a
+                    "Jelenlegi állapot" panelen látható az aranyszámlán
+                    nyilvántartott mennyiség és a becsült érték — utóbbi a
+                    rögzített vásárlások, eladások és az aktuális árfolyam alapján
+                    számolódik. A <strong>Fizikai termékek</strong> fülön a
+                    fizikai aranytermékek (érme, rúd stb.) nyilvántartott
+                    bekerülési értéke jelenik meg összesítve.
+                </p>
+
+                <h4>Kereskedés</h4>
+                <p>
+                    Az aranyszámlához rögzített vételi és eladási tranzakciók
+                    táblázatos nézete (Dátum / Mennyiség / Megjegyzés / Típus /
+                    Művelet oszlopokkal). Minden tételnél elérhető a törlés
+                    lehetősége, megerősítő kérdéssel.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Menük és gyakori műveletek</h3>
+
+                <h4>Fájl menü</h4>
+                <ul class="meta-list">
+                    <li>Új tranzakció — a rögzítő varázsló megnyitása</li>
+                    <li>Beállítások</li>
+                    <li>Kilépés</li>
+                </ul>
+
+                <h4>Adatok menü</h4>
+                <ul class="meta-list">
+                    <li>Biztonsági mentés / Visszaállítás — az adatbázis mentése
+                        és visszatöltése</li>
+                    <li>Import / Export</li>
+                    <li>Adatbázis törlése</li>
+                </ul>
+
+                <div class="hiba-doboz-figyelmezteto">
+                    <strong>Figyelem:</strong> az "Adatbázis törlése" a program
+                    egyik legveszélyesebb művelete, csak megfontoltan használd. A
+                    ribbonban ez a gomb külön, piros jelöléssel is ki van emelve.
+                </div>
+
+                <h4>Nézet menü</h4>
+                <ul class="meta-list">
+                    <li>Váltás a klasszikus menüsor és a szalag (ribbon)
+                        megjelenítés között</li>
+                </ul>
+
+                <h4>Súgó menü</h4>
+                <ul class="meta-list">
+                    <li>Névjegy</li>
+                    <li>Verzióinformáció</li>
+                    <li>Napló megtekintése — hibakereséshez, technikai napló</li>
+                    <li>Verziótörténet</li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h3>Gyakori kérdések</h3>
+
+                <h4>Hova kerülnek az adataim?</h4>
+                <p>
+                    A tranzakciók egy helyi SQLite adatbázisban tárolódnak a gép
+                    felhasználói adatterületén — nem kerülnek fel semmilyen
+                    szerverre.
+                </p>
+
+                <h4>Mit jelent a "FEJLESZTŐI MÓD AKTÍV" felirat, ha látom?</h4>
+                <p>
+                    Ez fejlesztői/tesztelési célú jelzés, plusz naplózással jár.
+                    Normál használat során ez nem jelenik meg.
+                </p>
+
+                <h4>Elveszíthetem az adataimat?</h4>
+                <p>
+                    A rendszeres Biztonsági mentés (Adatok menü) használatával
+                    minimalizálható ennek kockázata.
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h3>Hibajelentés</h3>
+                <p>
+                    Hibát vagy javaslatot a projekt GitHub oldalán, az Issues
+                    fülön lehet jelezni.
+                </p>
+                <a href="https://github.com/szabogergely26/penzugyi-naplo/issues">Hibajelentés a GitHub-on »</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
