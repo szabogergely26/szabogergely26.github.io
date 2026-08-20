@@ -26,7 +26,7 @@ a:hover {
 }
 
 .page {
-     width: min(1180px, calc(100% - 48px));
+    width: min(1180px, calc(100% - 48px));
     margin: 0 auto;
     background: #ffffff;
     border: 1px solid #aebfd1;
@@ -43,13 +43,11 @@ a:hover {
 .header-inner {
     padding: 34px 38px 30px 38px;
     background:
-        repeating-linear-gradient(
-            45deg,
+        repeating-linear-gradient(45deg,
             rgba(255, 255, 255, 0.05),
             rgba(255, 255, 255, 0.05) 2px,
             transparent 2px,
-            transparent 8px
-        );
+            transparent 8px);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -183,6 +181,24 @@ a:hover {
 
 .button.primary:hover {
     background: linear-gradient(180deg, #2f638f 0%, #1f4669 100%);
+}
+
+/* Kiegészítő figyelmeztető/tájékoztató szöveg gomb-sorok alatt,
+   pl. "ez a csomag nem frissül apt upgrade-re" jellegű megjegyzésekhez */
+.note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #5a6b7c;
+    max-width: 620px;
+}
+
+.note code {
+    background: #eef3f8;
+    border: 1px solid #d3e0ea;
+    padding: 1px 5px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    color: #1f4d73;
 }
 
 /* Telepítés szekció több ága (pl. Stabil / Előzetes) — újrafelhasználható minta */
@@ -444,7 +460,8 @@ a:hover {
 .card-thumb {
     position: relative;
     margin: -20px -20px 14px -20px;
-    overflow: hidden;    /* EZ HIÁNYZOTT - ez vágja le a képet a doboz méretére */
+    overflow: hidden;
+    /* EZ HIÁNYZOTT - ez vágja le a képet a doboz méretére */
 }
 
 .card-thumb img {
@@ -465,12 +482,20 @@ a:hover {
     font-weight: bold;
     border-radius: 3px;
     color: #ffffff;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.badge-stable { background: #3f8f5f; }
-.badge-preview { background: #c78a2e; }
-.badge-dev { background: #a04f4f; }
+.badge-stable {
+    background: #3f8f5f;
+}
+
+.badge-preview {
+    background: #c78a2e;
+}
+
+.badge-dev {
+    background: #a04f4f;
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -486,7 +511,7 @@ a:hover {
     font-weight: bold;
     border-radius: 3px;
     color: #ffffff;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     border: none;
     cursor: pointer;
     line-height: 1.4;
@@ -496,8 +521,13 @@ a:hover {
     filter: brightness(1.08);
 }
 
-.update-badge-updated { background: #2f6fb0; }
-.update-badge-fixing  { background: #c78a2e; }
+.update-badge-updated {
+    background: #2f6fb0;
+}
+
+.update-badge-fixing {
+    background: #c78a2e;
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -547,9 +577,17 @@ a:hover {
     display: inline-block;
 }
 
-.updates-titlebar .dot-red { background: #e0605a; }
-.updates-titlebar .dot-yellow { background: #e0b555; }
-.updates-titlebar .dot-green { background: #5cb87a; }
+.updates-titlebar .dot-red {
+    background: #e0605a;
+}
+
+.updates-titlebar .dot-yellow {
+    background: #e0b555;
+}
+
+.updates-titlebar .dot-green {
+    background: #5cb87a;
+}
 
 .updates-titlebar span.updates-titlebar-label {
     margin-left: 4px;
@@ -598,8 +636,13 @@ a:hover {
     gap: 6px;
 }
 
-.updates-box h4.updates-heading-updated { color: #2f6fb0; }
-.updates-box h4.updates-heading-fixing  { color: #a06a1e; }
+.updates-box h4.updates-heading-updated {
+    color: #2f6fb0;
+}
+
+.updates-box h4.updates-heading-fixing {
+    color: #a06a1e;
+}
 
 .updates-box ul {
     list-style: none;
@@ -671,7 +714,7 @@ a:hover {
 .update-modal {
     background: #ffffff;
     border: 1px solid #aebfd1;
-    box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
     max-width: 480px;
     width: 100%;
     max-height: 80vh;
@@ -708,8 +751,13 @@ a:hover {
     margin-bottom: 12px;
 }
 
-.update-modal-kind.kind-updated { background: #2f6fb0; }
-.update-modal-kind.kind-fixing  { background: #c78a2e; }
+.update-modal-kind.kind-updated {
+    background: #2f6fb0;
+}
+
+.update-modal-kind.kind-fixing {
+    background: #c78a2e;
+}
 
 .update-modal h3 {
     margin: 0 0 4px 0;
@@ -745,7 +793,7 @@ a:hover {
     font-weight: bold;
     border-radius: 3px;
     color: #ffffff;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .disabled-link {
@@ -819,6 +867,7 @@ a:hover {
         opacity: 0;
         transform: translateY(8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -826,15 +875,41 @@ a:hover {
 }
 
 /* Staggerelt betöltés: minden rácsban a képek kicsit egymás után jelennek meg */
-.screenshot-grid .thumb-link:nth-child(1) { animation-delay: 0.02s; }
-.screenshot-grid .thumb-link:nth-child(2) { animation-delay: 0.08s; }
-.screenshot-grid .thumb-link:nth-child(3) { animation-delay: 0.14s; }
-.screenshot-grid .thumb-link:nth-child(4) { animation-delay: 0.20s; }
-.screenshot-grid .thumb-link:nth-child(5) { animation-delay: 0.26s; }
-.screenshot-grid .thumb-link:nth-child(6) { animation-delay: 0.32s; }
-.screenshot-grid .thumb-link:nth-child(7) { animation-delay: 0.38s; }
-.screenshot-grid .thumb-link:nth-child(8) { animation-delay: 0.44s; }
-.screenshot-grid .thumb-link:nth-child(9) { animation-delay: 0.50s; }
+.screenshot-grid .thumb-link:nth-child(1) {
+    animation-delay: 0.02s;
+}
+
+.screenshot-grid .thumb-link:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.screenshot-grid .thumb-link:nth-child(3) {
+    animation-delay: 0.14s;
+}
+
+.screenshot-grid .thumb-link:nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.screenshot-grid .thumb-link:nth-child(5) {
+    animation-delay: 0.26s;
+}
+
+.screenshot-grid .thumb-link:nth-child(6) {
+    animation-delay: 0.32s;
+}
+
+.screenshot-grid .thumb-link:nth-child(7) {
+    animation-delay: 0.38s;
+}
+
+.screenshot-grid .thumb-link:nth-child(8) {
+    animation-delay: 0.44s;
+}
+
+.screenshot-grid .thumb-link:nth-child(9) {
+    animation-delay: 0.50s;
+}
 
 .lightbox {
     display: none;
@@ -865,8 +940,13 @@ a:hover {
 }
 
 @keyframes lightbox-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes lightbox-zoom-in {
@@ -874,11 +954,13 @@ a:hover {
         opacity: 0;
         transform: scale(0.93);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Képernyőképek galéria: Rács / Szalag nézetváltó (checkbox + :checked trükk, JS nélkül) */
@@ -902,7 +984,7 @@ a:hover {
     content: "☰  Szalag nézet";
 }
 
-.view-toggle-input:checked + .view-toggle-label::before {
+.view-toggle-input:checked+.view-toggle-label::before {
     content: "⊞  Rács nézet";
 }
 

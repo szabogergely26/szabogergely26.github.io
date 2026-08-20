@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 </head>
+
 <body>
 
     <div class="page">
@@ -51,7 +53,7 @@
                         </ul>
 
                         <div class="button-row">
-                            <span class="button disabled">Letöltés – Hamarosan</span>
+                            <a href="#telepites" class="button primary">Letöltés</a>
                         </div>
                     </div>
                 </article>
@@ -77,13 +79,27 @@
                 </div>
             </section>
 
-            <!-- Telepítés szekció: még nincs kész csomagolás -->
+            <!-- Telepítés szekció: v1.1 .deb csomag a GitHub Releases-ről -->
+            <!-- id="telepites": ide ugrik a fenti "Letöltés" gomb -->
             <section class="download-section" id="telepites">
                 <h3>Telepítés</h3>
                 <div class="button-row">
-                    <span class="button disabled">Csomag – Hamarosan</span>
-                    <span class="button disabled">Forráskód – Hamarosan</span>
+                    <a href="https://github.com/szabogergely26/EasyEffects/releases/download/v1.1/easyeffects-quickaccess_all.deb"
+                        class="button primary">
+                        Linux (Debian .deb) – v1.1
+                    </a>
+                    <a href="https://github.com/szabogergely26/EasyEffects" class="button">Forráskód</a>
                 </div>
+
+                <!-- Megjegyzés: GitHub Release-ből érkezik, nem saját APT repóból,
+                     tehát "sudo apt upgrade" nem frissíti automatikusan -->
+                <p class="note">
+                    Megjegyzés: ez a csomag nem APT repóból érkezik, tehát
+                    <code>sudo apt upgrade</code> nem frissíti automatikusan.
+                    Új verzió esetén a <code>.deb</code>-et innen kell újra letölteni,
+                    majd <code>sudo dpkg -i</code> paranccsal újratelepíteni
+                    (ez felülírja a régi verziót).
+                </p>
             </section>
 
             <!-- Dokumentáció -->
@@ -105,4 +121,5 @@
     </div>
 
 </body>
+
 </html>

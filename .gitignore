@@ -8,3 +8,6 @@ Thumbs.db
 # Ideiglenes fájlok
 *.swp
 *~
+*.zip
+*.7zip
+*.tar.gz
