@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sablonok — nem publikus referencia</title>
+</head>
+
+<body>
+
+    <!-- =====================================================================
+     SABLONOK.HTML
+     Ez a fájl NEM része az élő weboldalnak — nincs rá link sehonnan,
+     nincs benne semmi, ami böngészőben megjelenne. Kizárólag arra való,
+     hogy egy helyen legyenek a projekt-weboldal ismétlődő HTML/CSS
+     mintái, amiket új oldal/szekció írásakor ki lehet másolni innen.
+
+     Minden minta kikommentelve van. Használat:
+        1. Kijelölöd a kívánt <!-- ... --> blokkot
+    2. Kimásolod a célfájlba
+    3. Kikommentezed (törlöd a <!-- és --> jeleket)
+    4. Átírod a szöveget/linkeket a konkrét tartalomra
+
+    A stílusokat a gyökér style.css tartalmazza, ide csak a HTML-váz
+    kerül. Ha egy class-t átneveztél vagy megszűnt a style.css-ben,
+    ezt a fájlt is frissítsd.
+    ===================================================================== -->
+
+
+    <!-- =====================================================================
+     1. OLDALVÁZ — minden aloldal (projektek/, letoltesek/, dokumentacio/)
+     ezzel a fejléc/nav/footer kerettel indul. A href-ek relatív útvonalai
+     a mappamélységtől függenek (1 mappa mélyen "../", 2 mappa mélyen
+     "../../" stb. — nézd meg egy meglévő testvér-oldalt referenciának).
+     ===================================================================== -->
+    <!--
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Oldal címe] – Szabó Gergely szoftverei</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <div class="header-inner">
+                <h1>Szabó Gergely szoftverei</h1>
+                <p>Saját fejlesztésű asztali alkalmazások Linuxra és Windowsra</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <a href="../index.html">Kezdő</a>
+            <a href="../letoltesek/index.html">Letöltések</a>
+            <a href="../kepernyokepek/index.html">Képernyőképek</a>
+            <a href="../dokumentacio/index.html">Dokumentáció</a>
+            <a href="https://github.com/szabogergely26" title="A projekt GitHub főoldala">GitHub</a>
+        </nav>
+
+        <main class="content">
+
+            <p class="back-link"><a href="../index.html">« Vissza a főoldalra</a></p>
+
+            [ide jön az oldal saját tartalma]
+
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 Szabó Gergely · Saját fejlesztésű asztali alkalmazások</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+-->
+
+
+    <!-- =====================================================================
+     2. HIBA-DOBOZ SABLONOK — ismert hiba (fekete/piros) és javítva (zöld)
+     Class-ok a style.css végén: .hiba-doboz-figyelmezteto / .hiba-doboz-javitva
+     ===================================================================== -->
+    <!--
+<div class="hiba-doboz-figyelmezteto">
+    ⚠️ Figyelem! Ez az alkalmazás ismert hibákat tartalmaz, amik még nem lettek javítva.
+</div>
+
+<div class="hiba-doboz-javitva">
+    ✅ A következő hibák javítva: [hiba leírása]
+</div>
+-->
+
+
+    <!-- =====================================================================
+     3. INFO SZEKCIÓ — egyszerű cím + szöveg blokk (pl. "Mi ez?", "Telepítés")
+     ===================================================================== -->
+    <!--
+<section class="info-section">
+    <h3>[Szekció címe]</h3>
+    <p>
+        [Szöveg]
+    </p>
+</section>
+-->
+
+
+    <!-- =====================================================================
+     4. FEATURED-CARD — kiemelt alkalmazás-kártya (projekt-oldal tetején),
+     meta-listával és letöltés gombbal.
+     ===================================================================== -->
+    <!--
+<section class="featured">
+    <h2>[Alkalmazás neve]</h2>
+
+    <article class="featured-card">
+        <div class="featured-text">
+            <p>
+                [Rövid leírás]
+            </p>
+
+            <ul class="meta-list">
+                <li><strong>Platform:</strong> [pl. Debian GNU/Linux (KDE Plasma)]</li>
+                <li><strong>Állapot:</strong> [Stabil / Fejlesztés alatt]</li>
+                <li><strong>Licenc:</strong> GPL-3.0</li>
+            </ul>
+
+            <div class="button-row">
+                <a href="[link a letöltés oldalra]" class="button primary">
+                    Letöltés
+                </a>
+            </div>
+        </div>
+    </article>
+</section>
+-->
+
+
+    <!-- =====================================================================
+     5. FEATURE-GRID — több kártyás "főbb funkciók" rács
+     ===================================================================== -->
+    <!--
+<section class="info-section">
+    <h3>Főbb funkciók</h3>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>[Funkció neve]</h4>
+            <p>[Rövid leírás]</p>
+        </div>
+        <div class="feature-card">
+            <h4>[Funkció neve]</h4>
+            <p>[Rövid leírás]</p>
+        </div>
+    </div>
+</section>
+-->
+
+
+    <!-- =====================================================================
+     6. SCREENSHOT-FRAME — képernyőkép-rács egy szekcióban
+     ===================================================================== -->
+    <!--
+<section class="screenshot-frame">
+    <h3>Képernyőképek</h3>
+    <div class="screenshot-grid">
+        <img src="../kepernyokepek/[projekt]/[fájl].png" alt="[leírás]">
+        <img src="../kepernyokepek/[projekt]/[fájl].png" alt="[leírás]">
+    </div>
+</section>
+-->
+
+
+    <!-- =====================================================================
+     7. DOWNLOAD-SECTION — gombsor telepítéshez / letöltéshez
+     "disabled" a még nem elérhető csomagokhoz (pl. "Hamarosan").
+     ===================================================================== -->
+    <!--
+<section class="download-section" id="telepites">
+    <h3>Telepítés</h3>
+    <div class="button-row">
+        <a href="[stabil, versionless letöltés-link]" class="button primary" download>
+            Linux (Debian .deb)
+        </a>
+
+        <span class="button disabled">APT repository – Hamarosan</span>
+
+        <a href="[GitHub repó link]" class="button">Forráskód</a>
+    </div>
+</section>
+-->
+
+
+    <!-- =====================================================================
+     8. FEATURED-CARD (letöltés-oldal változat) — verziószámmal, kódrészlettel
+     ===================================================================== -->
+    <!--
+<div class="feature-grid">
+    <div class="featured-card">
+        <h4>[Csomag neve, pl. Hibrid GPU (AMD+NVIDIA)]</h4>
+        <p><strong>Verzió:</strong> [x.y.z]</p>
+        <p>
+            [Leírás, pl. telepítési megjegyzés <code>sudo apt install ...</code> kóddal]
+        </p>
+        <div class="button-row">
+            <a href="[stabil letöltés-link]" class="button primary" download>
+                Letöltés (.deb)
+            </a>
+        </div>
+    </div>
+</div>
+-->
+
+
+    <!-- =====================================================================
+     9. BADGE-ek — kártyákon/állapot-jelzésre használt kis címkék
+     ===================================================================== -->
+    <!--
+<span class="badge badge-stable">Stabil</span>
+<span class="badge badge-preview">Preview</span>
+<span class="badge badge-dev">Fejlesztés alatt</span>
+-->
+
+</body>
+
+</html>

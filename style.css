@@ -1023,10 +1023,26 @@ a:hover {
 
 /* Kiemelt alkalmazás carousel (featured-root) */
 
+.featured-inner-title {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 0 0 12px 34px;
+    padding: 4px 14px;
+    background: #f9fbfd;
+    border: 1px solid #c7d5e3;
+    border-radius: 4px;
+    color: #254f75;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
 .featured-track {
     position: relative;
     overflow: hidden;
-    min-height: 220px;
+    min-height: 340px;
 }
 
 .slide {
@@ -1037,10 +1053,17 @@ a:hover {
     height: 100%;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 0 28px 0;
+    pointer-events: none;
+}
+
+.slide-inner {
+    display: flex;
     align-items: center;
     gap: 28px;
-    padding: 28px 34px;
-    pointer-events: none;
+    padding: 0 34px;
 }
 
 .slide.active {
@@ -1075,8 +1098,8 @@ a:hover {
 }
 
 .slide-thumb {
-    flex: 0 0 220px;
-    height: 160px;
+    flex: 0 0 300px;
+    height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1316,4 +1339,28 @@ a:hover {
         padding: 8px 12px;
         font-size: 12.5px;
     }
+}
+
+/* ================================================= */
+/* HIBA-DOBOZ SABLONOK — ismert hiba / javítva jelzés */
+/* ================================================= */
+.hiba-doboz-figyelmezteto {
+    background-color: #000000;
+    color: #ff3b3b;
+    border: 1px solid #ff3b3b;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin: 12px 0;
+}
+
+.hiba-doboz-javitva {
+    background-color: #1b5e20;
+    color: #ffffff;
+    border: 1px solid #4caf50;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-family: Arial, sans-serif;
+    margin: 12px 0;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +11,38 @@
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
+
 <body>
+    <!-- ==========================================================================================================
+                MEGJEGYZÉS SABLON — A sablonok mappába találod
+            ======================================================================================================= -->
 
     <div class="page">
         <!-- Fejléc -->
-         <!-- AI-megjegyzés sáv -->
+        <!-- AI-megjegyzés sáv -->
         <div class="ai-bar" id="ai-bar">
-        <p class="ai-bar-text">
-            🤖 <b>A weboldal és a bemutatott projektek nagy része AI (Claude) segítségével
-            készül, emberi tervezés, irányítás és folyamatos ellenőrzés mellett.</b>
-        </p>
-        <button class="ai-bar-accept" id="ai-bar-accept">Tudomásul vettem</button>
-    </div>
+            <p class="ai-bar-text">
+                🤖 <b>A weboldal és a bemutatott projektek nagy része AI (Claude) segítségével
+                    készül, emberi tervezés, irányítás és folyamatos ellenőrzés mellett.</b>
+            </p>
+            <button class="ai-bar-accept" id="ai-bar-accept">Tudomásul vettem</button>
+        </div>
 
-    <script>
-        (function () {
-            const bar = document.getElementById('ai-bar');
-            const acceptBtn = document.getElementById('ai-bar-accept');
+        <script>
+            (function () {
+                const bar = document.getElementById('ai-bar');
+                const acceptBtn = document.getElementById('ai-bar-accept');
 
-            acceptBtn.addEventListener('click', () => {
-                bar.classList.add('hiding');
-                // az animáció végén (400ms) teljesen kivesszük a DOM-ból,
-                // hogy ne foglaljon helyet és ne legyen fókuszba kattintható
-                setTimeout(() => {
-                    bar.style.display = 'none';
-                }, 400);
-            });
-        })();
-    </script>
+                acceptBtn.addEventListener('click', () => {
+                    bar.classList.add('hiding');
+                    // az animáció végén (400ms) teljesen kivesszük a DOM-ból,
+                    // hogy ne foglaljon helyet és ne legyen fókuszba kattintható
+                    setTimeout(() => {
+                        bar.style.display = 'none';
+                    }, 400);
+                });
+            })();
+        </script>
 
 
 
@@ -66,10 +71,11 @@
             <section class="intro-box">
                 <h2>Szoftverek Debian/KDE és egyéb Linux rendszerekre</h2>
                 <p>
-                    Pénzügyi nyilvántartás, filmadatbázis és kijelzőprofil-kezelő eszközök,
+                    Pénzügyi nyilvántartás, filmadatbázis és kijelzőprofil-kezelő eszközök, és még sok más
                     egyszerű telepítéssel, helyi adatkezeléssel és nyílt forráskóddal.
                 </p>
             </section>
+
 
             <script>
                 /* =========================================================================================================================
@@ -131,7 +137,7 @@
                     "szoftvertervezo": "Szoftvertervező"
                 };
 
-                function openUpdateModal(entry){
+                function openUpdateModal(entry) {
                     const overlay = document.createElement('div');
                     overlay.className = 'update-modal-overlay';
                     const kindClass = entry.type === 'updated' ? 'kind-updated' : 'kind-fixing';
@@ -149,18 +155,18 @@
                         </div>`;
                     document.body.appendChild(overlay);
 
-                    function close(){ overlay.remove(); }
+                    function close() { overlay.remove(); }
                     overlay.querySelector('.update-modal-close').addEventListener('click', close);
-                    overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
-                    document.addEventListener('keydown', function onEsc(e){
-                        if(e.key === 'Escape'){ close(); document.removeEventListener('keydown', onEsc); }
+                    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+                    document.addEventListener('keydown', function onEsc(e) {
+                        if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onEsc); }
                     });
                 }
 
-                function renderUpdateBadges(){
+                function renderUpdateBadges() {
                     UPDATES_CONFIG.forEach(entry => {
                         const card = document.querySelector(`.app-card[data-project="${entry.project}"] .card-thumb`);
-                        if(!card) return;
+                        if (!card) return;
                         const btn = document.createElement('button');
                         btn.className = 'update-badge ' + (entry.type === 'updated' ? 'update-badge-updated' : 'update-badge-fixing');
                         btn.textContent = entry.type === 'updated' ? 'Frissült' : 'Javítás alatt';
@@ -169,13 +175,13 @@
                     });
                 }
 
-                function renderUpdatesBox(){
+                function renderUpdatesBox() {
                     const box = document.getElementById('updates-box');
                     const updated = UPDATES_CONFIG.filter(e => e.type === 'updated');
                     const fixing = UPDATES_CONFIG.filter(e => e.type === 'fixing');
 
-                    function renderList(entries){
-                        if(!entries.length) return '<p class="updates-empty">Nincs jelenleg bejegyzés.</p>';
+                    function renderList(entries) {
+                        if (!entries.length) return '<p class="updates-empty">Nincs jelenleg bejegyzés.</p>';
                         return `<ul>${entries.map((e, i) => `
                             <li>
                                 <button class="update-entry" data-list="${e === entries[i] ? '' : ''}" data-idx="${UPDATES_CONFIG.indexOf(e)}">
@@ -199,7 +205,7 @@
                     box.querySelectorAll('.update-entry').forEach(btn => {
                         btn.addEventListener('click', () => {
                             const entry = UPDATES_CONFIG[Number(btn.dataset.idx)];
-                            if(entry) openUpdateModal(entry);
+                            if (entry) openUpdateModal(entry);
                         });
                     });
                 }
@@ -223,78 +229,56 @@
                 /* ============================================================
                 BEÁLLÍTÁSOK — ezt a részt szerkeszd a saját projektedhez
                 ============================================================ */
-            const FEATURED_CONFIG = {
-                ENABLED: true,          // false = csak az első slide jelenik meg, statikus kártyaként, nyilak/pöttyök nélkül
-                AUTOPLAY_MS: 5000,      // automatikus váltás ennyi ms-onként (0 = nincs automatikus váltás)
-                TRANSITION: 1,          // 1 = áttűnés (fade), 0 = csúsztatás (balról-jobbra)
-                SLIDES: [
-                    {
-                        eyebrow: "Legújabb",
-                        title: "Filmek-Adatbázis",
-                        desc: "Saját film- és sorozatnyilvántartó alkalmazás — kereséssel, értékeléssel és személyes listákkal.",
-                        ctaText: "Megnézem »",
-                        ctaHref: "projektek/filmek-adatbazis.html",
-                        image: "kepernyokepek/Filmek-Adatbazis/1.png",
-                        bgColor: "#1b1f24",
-                        theme: "dark"
-                    },
-                    {
-                        eyebrow: "Alkalmazás",
-                        title: "Pénzügyi Napló",
-                        desc: "Egyszerű, letölthető Linux (.deb) alkalmazás a napi kiadások és bevételek követésére.",
-                        ctaText: "Megnézem »",
-                        ctaHref: "projektek/penzugyi-naplo.html",
-                        image: null,
-                        bgColor: "#f5f8fb",
-                        theme: "light"
-                    },
-                    {
-                        eyebrow: "Alkalmazás",
-                        title: "Szoftvertervező",
-                        desc: "Helyi adatkezelésű tervező alkalmazás KDE Plasma környezethez, projektek és feladatok átlátható kezelésére.",
-                        ctaText: "Megnézem »",
-                        ctaHref: "projektek/szoftvertervezo.html",
-                        image: "kepernyokepek/Szoftvertervezo/1.png",
-                        bgColor: "#f5f8fb",
-                        theme: "light"
-                    },
-                ]
-            };
-    
-            /* ============================================================ */
+                const FEATURED_CONFIG = {
+                    ENABLED: true,          // false = csak az első slide jelenik meg, statikus kártyaként, nyilak/pöttyök nélkül
+                    AUTOPLAY_MS: 5000,      // automatikus váltás ennyi ms-onként (0 = nincs automatikus váltás)
+                    TRANSITION: 1,          // 1 = áttűnés (fade), 0 = csúsztatás (balról-jobbra)
+                    SLIDES: [
+                        {
+                            eyebrow: "Legújabb",
+                            title: "Filmek-Adatbázis",
+                            desc: "Saját film- és sorozatnyilvántartó alkalmazás — kereséssel, értékeléssel és személyes listákkal.",
+                            ctaText: "Megnézem »",
+                            ctaHref: "projektek/filmek-adatbazis.html",
+                            image: "kepernyokepek/Filmek-Adatbazis/1.png",
+                            bgColor: "#1b1f24",
+                            theme: "dark"
+                        },
+                        {
+                            eyebrow: "Alkalmazás",
+                            title: "Pénzügyi Napló",
+                            desc: "Egyszerű, letölthető Linux (.deb) alkalmazás a napi kiadások és bevételek követésére.",
+                            ctaText: "Megnézem »",
+                            ctaHref: "projektek/penzugyi-naplo.html",
+                            image: null,
+                            bgColor: "#f5f8fb",
+                            theme: "light"
+                        },
+                        {
+                            eyebrow: "Alkalmazás",
+                            title: "Szoftvertervező",
+                            desc: "Helyi adatkezelésű tervező alkalmazás KDE Plasma környezethez, projektek és feladatok átlátható kezelésére.",
+                            ctaText: "Megnézem »",
+                            ctaHref: "projektek/szoftvertervezo.html",
+                            image: "kepernyokepek/Szoftvertervezo/1.png",
+                            bgColor: "#f5f8fb",
+                            theme: "light"
+                        },
+                    ]
+                };
 
-            function renderFeatured(config){
-            const root = document.getElementById('featured-root');
-                root.innerHTML = '';
+                /* ============================================================ */
 
-                if(!config.ENABLED || config.SLIDES.length <= 1){
-                    const s = config.SLIDES[0];
-                    root.innerHTML = `
+                function renderFeatured(config) {
+                    const root = document.getElementById('featured-root');
+                    root.innerHTML = '';
+
+                    if (!config.ENABLED || config.SLIDES.length <= 1) {
+                        const s = config.SLIDES[0];
+                        root.innerHTML = `
                         <div class="single-card slide theme-${s.theme} active" style="background-color:${s.bgColor}">
-                            <div class="slide-thumb">
-                                ${s.image ? `<img src="${s.image}" alt="${s.title}">` : '<span class="slide-thumb-placeholder">Képernyőkép ide</span>'}
-                            </div>
-                            <div class="slide-body">
-                                <p class="slide-eyebrow">${s.eyebrow}</p>
-                                <h2 class="slide-title">${s.title}</h2>
-                                <p class="slide-desc">${s.desc}</p>
-                                <a class="button primary" href="${s.ctaHref}">${s.ctaText}</a>
-                            </div>
-                        </div>`;
-                    return;
-                }
-
-                let current = 0;
-                let timer = null;
-
-                const wrapper = document.createElement('div');
-                wrapper.className = 'featured ' + (config.TRANSITION === 0 ? 'anim-slide' : 'anim-fade');
-                wrapper.innerHTML = `
-                    <div class="featured-track">
-                        <button class="nav-arrow nav-prev" aria-label="Előző">&#10094;</button>
-                        <button class="nav-arrow nav-next" aria-label="Következő">&#10095;</button>
-                        ${config.SLIDES.map((s,i) => `
-                            <div class="slide theme-${s.theme}${i===0 ? ' active' : ''}" data-index="${i}" style="background-color:${s.bgColor}">
+                            <p class="featured-inner-title">Reflektorfényben</p>
+                            <div class="slide-inner">
                                 <div class="slide-thumb">
                                     ${s.image ? `<img src="${s.image}" alt="${s.title}">` : '<span class="slide-thumb-placeholder">Képernyőkép ide</span>'}
                                 </div>
@@ -305,47 +289,75 @@
                                     <a class="button primary" href="${s.ctaHref}">${s.ctaText}</a>
                                 </div>
                             </div>
+                        </div>`;
+                        return;
+                    }
+
+                    let current = 0;
+                    let timer = null;
+
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'featured ' + (config.TRANSITION === 0 ? 'anim-slide' : 'anim-fade');
+                    wrapper.innerHTML = `
+                    <div class="featured-track">
+                        <button class="nav-arrow nav-prev" aria-label="Előző">&#10094;</button>
+                        <button class="nav-arrow nav-next" aria-label="Következő">&#10095;</button>
+                        ${config.SLIDES.map((s, i) => `
+                            <div class="slide theme-${s.theme}${i === 0 ? ' active' : ''}" data-index="${i}" style="background-color:${s.bgColor}">
+                                <p class="featured-inner-title">Reflektorfényben</p>
+                                <div class="slide-inner">
+                                    <div class="slide-thumb">
+                                        ${s.image ? `<img src="${s.image}" alt="${s.title}">` : '<span class="slide-thumb-placeholder">Képernyőkép ide</span>'}
+                                    </div>
+                                    <div class="slide-body">
+                                        <p class="slide-eyebrow">${s.eyebrow}</p>
+                                        <h2 class="slide-title">${s.title}</h2>
+                                        <p class="slide-desc">${s.desc}</p>
+                                        <a class="button primary" href="${s.ctaHref}">${s.ctaText}</a>
+                                    </div>
+                                </div>
+                            </div>
                         `).join('')}
                     </div>
                 <div class="dots">
-                    ${config.SLIDES.map((_,i) => `<button class="dot${i===0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i+1}"></button>`).join('')}
+                    ${config.SLIDES.map((_, i) => `<button class="dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i + 1}"></button>`).join('')}
                 </div>
                 `;
-  root.appendChild(wrapper);
+                    root.appendChild(wrapper);
 
-  const slides = wrapper.querySelectorAll('.slide');
-  const dots = wrapper.querySelectorAll('.dot');
+                    const slides = wrapper.querySelectorAll('.slide');
+                    const dots = wrapper.querySelectorAll('.dot');
 
-  function goTo(index){
-    current = (index + config.SLIDES.length) % config.SLIDES.length;
-    slides.forEach((el,i) => el.classList.toggle('active', i === current));
-    dots.forEach((el,i) => el.classList.toggle('active', i === current));
-  }
+                    function goTo(index) {
+                        current = (index + config.SLIDES.length) % config.SLIDES.length;
+                        slides.forEach((el, i) => el.classList.toggle('active', i === current));
+                        dots.forEach((el, i) => el.classList.toggle('active', i === current));
+                    }
 
-  function startAutoplay(){
-    if(config.AUTOPLAY_MS > 0){
-      timer = setInterval(() => goTo(current + 1), config.AUTOPLAY_MS);
-    }
-  }
-  function stopAutoplay(){
-    if(timer) clearInterval(timer);
-  }
+                    function startAutoplay() {
+                        if (config.AUTOPLAY_MS > 0) {
+                            timer = setInterval(() => goTo(current + 1), config.AUTOPLAY_MS);
+                        }
+                    }
+                    function stopAutoplay() {
+                        if (timer) clearInterval(timer);
+                    }
 
-  wrapper.querySelector('.nav-prev').addEventListener('click', () => { goTo(current - 1); });
-  wrapper.querySelector('.nav-next').addEventListener('click', () => { goTo(current + 1); });
-  dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+                    wrapper.querySelector('.nav-prev').addEventListener('click', () => { goTo(current - 1); });
+                    wrapper.querySelector('.nav-next').addEventListener('click', () => { goTo(current + 1); });
+                    dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
 
-  wrapper.addEventListener('mouseenter', stopAutoplay);
-  wrapper.addEventListener('mouseleave', startAutoplay);
+                    wrapper.addEventListener('mouseenter', stopAutoplay);
+                    wrapper.addEventListener('mouseleave', startAutoplay);
 
-  startAutoplay();
-}
+                    startAutoplay();
+                }
 
-renderFeatured(FEATURED_CONFIG);
-</script>
+                renderFeatured(FEATURED_CONFIG);
+            </script>
 
 
-           <section class="app-grid">
+            <section class="app-grid">
 
                 <article class="app-card" data-project="filmek-adatbazis">
                     <div class="card-thumb">
@@ -413,7 +425,7 @@ renderFeatured(FEATURED_CONFIG);
                 <article class="app-card" data-project="easyeffects">
                     <div class="card-thumb">
                         <img src="kepernyokepek/EasyEffects/1.png" alt="EasyEffects Quick Access">
-                            <span class="badge badge-stable">Stabil</span>
+                        <span class="badge badge-stable">Stabil</span>
                     </div>
                     <div class="card-body">
                         <h3>EasyEffects Quick Access</h3>
@@ -422,37 +434,37 @@ renderFeatured(FEATURED_CONFIG);
                             egy kattintás a megnyitáshoz, jobb klikk a hangprofilok listázásához.
                         </p>
                     </div>
-                <div class="card-footer">
-                    <span class="platform-icons">
-                        <!-- Linux ikon -->
-                        <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
-                    </span>
-                    <a href="projektek/easyeffects.html">Részletek</a>
-                </div>
+                    <div class="card-footer">
+                        <span class="platform-icons">
+                            <!-- Linux ikon -->
+                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                        </span>
+                        <a href="projektek/easyeffects.html">Részletek</a>
+                    </div>
                 </article>
 
-    <article class="app-card" data-project="retro-game-launcher">
-        <div class="card-thumb">
-            <img src="kepernyokepek/Retro-Game-Launcher/1.png" alt="Retro Game Launcher">
-            <span class="badge badge-dev">Fejlesztés alatt</span>
-        </div>
-        <div class="card-body">
-            <h3>Retro Game Launcher</h3>
-            <p>
-                Retro játékok indítója egységes felülettel, memória- és nyelvválasztási
-                beállításokkal.
-            </p>
-        </div>
-        <div class="card-footer">
-            <span class="platform-icons">
-                <!-- Linux ikon -->
-                <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
-            </span>
-            <a href="projektek/retro-game-launcher.html">Részletek</a>
-        </div>
-    </article>
+                <article class="app-card" data-project="retro-game-launcher">
+                    <div class="card-thumb">
+                        <img src="kepernyokepek/Retro-Game-Launcher/1.png" alt="Retro Game Launcher">
+                        <span class="badge badge-dev">Fejlesztés alatt</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Retro Game Launcher</h3>
+                        <p>
+                            Retro játékok indítója egységes felülettel, memória- és nyelvválasztási
+                            beállításokkal.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="platform-icons">
+                            <!-- Linux ikon -->
+                            <img src="assets/icons/tux.svg" alt="Linux" width="16" height="16">
+                        </span>
+                        <a href="projektek/retro-game-launcher.html">Részletek</a>
+                    </div>
+                </article>
 
-    <article class="app-card" data-project="szoftvertervezo">
+                <article class="app-card" data-project="szoftvertervezo">
                     <div class="card-thumb">
                         <img src="kepernyokepek/Szoftvertervezo/1.png" alt="Szoftvertervező">
                         <span class="badge badge-stable">Stabil</span>
@@ -522,4 +534,5 @@ renderFeatured(FEATURED_CONFIG);
     </div>
 
 </body>
+
 </html>
