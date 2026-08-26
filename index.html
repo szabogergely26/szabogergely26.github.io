@@ -14,7 +14,8 @@
 
 <body>
     <!-- ==========================================================================================================
-                MEGJEGYZÉS SABLON — A sablonok mappába találod
+                MEGJEGYZÉS SABLON — A sablonok mappába találod.
+                komment használatot a komment_használat.md -be találsz -projekt állapot megváltoztatásához
             ======================================================================================================= -->
 
     <div class="page">
@@ -76,6 +77,10 @@
                 </p>
             </section>
 
+            <!-- Hírek doboz tartalma és a főoldalon lévő kártyák Frissült / Javítva jelzései
+                ha módosítod, akkor a Hírek doboz és a kártya is változik.
+                Ha nem akarod megtartani már a Frissült jelzést, egyszerűen kommenteld ki a megfelelő kártya sorait. 
+            -->
 
             <script>
                 /* =========================================================================================================================
@@ -97,16 +102,16 @@
                 — ez egyszerre szedi le a kártyáról a narancssárga badge-et és a floating updates-box-ból is az adott bejegyzést.
                 ============================================================================================================================= */
                 const UPDATES_CONFIG = [
-                    {
+                    /*{
                         project: "filmek-adatbazis",
                         type: "updated",
                         title: "Új : Első indítási varázsló és hibajavítások",
                         date: "2026.07.22",
                         details: [
-                            "Telepítés után Varázslóba választhatod ki hogy mivel kezdesz",
+                            ,
                         ]
-                    },
-                    {
+                    },*/
+                    /*{
                         project: "monitor-config",
                         type: "updated",
                         title: "Több infó, részletekért kattints!",
@@ -117,7 +122,8 @@
                             "A plasma-widgettel való kijelzőváltás után nem jelenik meg a plasma helyesen - Javításra vár."
                         ]
                     },
-                    {
+                    */
+                    /*{
                         project: "szoftvertervezo",
                         type: "updated",
                         title: "Új képernyőkép-galéria",
@@ -125,7 +131,7 @@
                         details: [
                             "8 új képernyőkép került fel a projekt oldalára."
                         ]
-                    },
+                    },*/
                 ];
 
                 const APP_NAMES = {
@@ -211,6 +217,7 @@
                 }
 
             </script>
+            <!-- Hírek doboz tartalma - vége -->
 
             <div class="featured-row">
                 <div id="featured-root"></div>
